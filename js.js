@@ -105,7 +105,7 @@ function testIfUserLogged() {
 }
 
 function getFromDB(User) {
-    //console.log(User);
+    console.log("User logged? - "+ User);
     //var selected_date = new Date(document.getElementById("datepicker").value);
     //var yyyy = selected_date.getFullYear();
     //var mm = selected_date.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
@@ -121,23 +121,25 @@ function getFromDB(User) {
     //        }
     //    })
     //});
-    var table = document.createElement('table');
-	for (var i = 1; i <= 20; i++){
-		var tr = document.createElement('tr');
-		var td = document.createElement('td');
-		var br = document.createElement('BR');
-
-    		var text1 = document.createTextNode('Nume: ' + 'nume ' + i);
-    		var text2 = document.createTextNode('Detalii: ' + 'detalii ' + i);
-
-    		td.appendChild(text1);
-    		td.appendChild(br);
-    		td.appendChild(text2);
-		
-		tr.appendChild(td);
-    		table.appendChild(tr);
-	}
-	document.body.appendChild(table);
+    if (User != 'No user signed in!') {
+	    var table = document.createElement('table');
+		for (var i = 1; i <= 20; i++) {
+			var tr = document.createElement('tr');
+			var td = document.createElement('td');
+			var br = document.createElement('BR');
+	
+	    		var text1 = document.createTextNode('Nume: ' + 'nume ' + i);
+	    		var text2 = document.createTextNode('Detalii: ' + 'detalii ' + i);
+	
+	    		td.appendChild(text1);
+	    		td.appendChild(br);
+	    		td.appendChild(text2);
+			
+			tr.appendChild(td);
+	    		table.appendChild(tr);
+		}
+		document.body.appendChild(table);
+    	}
 	document.getElementById("modal-loader").style.display = "none";
 }
 
