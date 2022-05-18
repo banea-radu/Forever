@@ -32,15 +32,21 @@ body { /*this was used to get rid of the white space/paddings from left and top 
     100% { transform: rotate(360deg); }
 }
 
-.FloorPlan-container {
-    position: relative;
-    max-width: 1000px;
-    margin: auto;
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-img {
-    width: 100%;
-    max-width: 1000px;
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  width: 50%;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 
 .burgermenu-container {
@@ -56,42 +62,6 @@ img {
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.7) 0px 0px 15px;
     z-index: 1;
-}
-
-.button-desk {
-    position: absolute;
-    background-color: green;
-    width: min(11vw,110px);
-    height: min(11vw,110px);
-    padding:0;
-    border-radius: 50%;
-    border: 1px solid black;
-    text-align: center;
-    font-size: min(7vw,70px);
-    cursor: pointer;
-    color: black;
-    z-index: 0;
-}
-
-.button-desk1 {
-    top: 89.00%;
-    left: 84.00%;
-}
-
-
-.datepicker {
-    z-index: 98;
-        position: fixed; /* centering horizontally requires the following 3 properties*/
-        left:0;
-        right:0;
-        margin: auto;
-        bottom: 3vh;
-    background-color:rgb(240,240,240,0.8);
-    width: 140px;
-    border: 1px solid rgb(255,64,129);
-    font-size: 15px;
-    text-align: center;
-    color: black;
 }
 
 .modal {
@@ -150,22 +120,6 @@ img {
 
 .sidebar-button:hover {background-color: gray}
 
-.modal-content-booking-menu {
-    position: absolute; /* centering horizontally requires the following 3 properties*/
-        left:0;
-        right:0;
-        margin: auto;
-    text-align: center;
-    bottom: 10vh;
-    height: min(78vh,110vw);
-    width: 70vw;
-    max-width: 700px;
-    font-size: min(5vh,5vw);
-    transform: translateY(200%);
-    border-radius: 15px;
-    padding: 1px;
-}
-
 .modal-content-login-menu {
     position: absolute; /* centering horizontally requires the following 3 properties*/
         left:0;
@@ -181,33 +135,6 @@ img {
     /*transform: translateX(0%);*/
     border-radius: 15px;
     padding: 1px;
-}
-
-#booking-menu-circle {
-    position: relative;
-    width: min(65vw,40vh);
-    height: min(65vw,40vh);
-    margin: auto;
-    line-height: min(65vw,40vh);
-    border-radius: 50%;
-    color: black;
-    text-align: center;
-    font-size: min(20vw,10vh);
-    background: pink;
-}
-
-.booking-menu-buttons {
-    position: relative;
-    background-color: LightBlue;
-    width: 25vw;
-    max-width: 300px;
-    height: min(7vw,4vh);
-    border-radius: 10px;
-    border: 1px solid black;
-    text-align: center;
-    font-size: min(4vw,3vh);
-    cursor: pointer;
-    color: black;
 }
 
 .login-menu-input-field {
