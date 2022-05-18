@@ -202,6 +202,4 @@ function openLoginWindow() {
 function closeLoginWindow() {
     document.getElementById("modal-login").style.transform = "translateY(-100%)";
     document.getElementById("login-menu").style.transform = "translateY(-100%)";
-    //setTimeout(changeDate,500);
-    changeDate();
 }
