@@ -106,21 +106,21 @@ function testIfUserLogged() {
 
 function getFromDB(User) {
     //console.log(User);
-    var selected_date = new Date(document.getElementById("datepicker").value);
-    var yyyy = selected_date.getFullYear();
-    var mm = selected_date.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
-    var dd = selected_date.getDate();
-    onValue(ref(database, 'Bookings/' + yyyy + '/' + mm + '/' + dd), function(snapshot) {
-        snapshot.forEach(function(ChildSnapshot) {
-            var buttonNr = "button" + ChildSnapshot.key.substring(4);
-            if (ChildSnapshot.val().Booker == User) {
-                document.getElementById(buttonNr).style.backgroundColor = 'rgb(240, 120, 196)';
-                }
-            else {
-                document.getElementById(buttonNr).style.backgroundColor = 'red';
-            }
-        })
-    });
+    //var selected_date = new Date(document.getElementById("datepicker").value);
+    //var yyyy = selected_date.getFullYear();
+    //var mm = selected_date.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
+    //var dd = selected_date.getDate();
+    //onValue(ref(database, 'Bookings/' + yyyy + '/' + mm + '/' + dd), function(snapshot) {
+    //    snapshot.forEach(function(ChildSnapshot) {
+    //        var buttonNr = "button" + ChildSnapshot.key.substring(4);
+    //        if (ChildSnapshot.val().Booker == User) {
+    //            document.getElementById(buttonNr).style.backgroundColor = 'rgb(240, 120, 196)';
+    //            }
+    //        else {
+    //            document.getElementById(buttonNr).style.backgroundColor = 'red';
+    //        }
+    //    })
+    //});
     document.getElementById("modal-loader").style.display = "none";
 }
 
