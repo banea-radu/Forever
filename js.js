@@ -121,7 +121,24 @@ function getFromDB(User) {
     //        }
     //    })
     //});
-    document.getElementById("modal-loader").style.display = "none";
+    var table = document.createElement('table');
+	for (var i = 1; i <= 20; i++){
+		var tr = document.createElement('tr');
+		var td = document.createElement('td');
+		var br = document.createElement('BR');
+
+    		var text1 = document.createTextNode('Nume: ' + 'nume ' + i);
+    		var text2 = document.createTextNode('Detalii: ' + 'detalii ' + i);
+
+    		td.appendChild(text1);
+    		td.appendChild(br);
+    		td.appendChild(text2);
+		
+		tr.appendChild(td);
+    		table.appendChild(tr);
+	}
+	document.body.appendChild(table);
+	document.getElementById("modal-loader").style.display = "none";
 }
 
     testIfUserLogged(); // needs to be placed after the functions used are defined
@@ -186,21 +203,3 @@ function closeLoginWindow() {
     //setTimeout(changeDate,500);
     changeDate();
 }
-
-var table = document.createElement('table');
-for (var i = 1; i <= 20; i++){
-    var tr = document.createElement('tr');   
-
-    var td = document.createElement('td');
-    var br = document.createElement('BR');
-
-    var text1 = document.createTextNode('Nume: ' + 'nume ' + i);
-    var text2 = document.createTextNode('Detalii: ' + 'detalii ' + i);
-
-    td.appendChild(text1);
-    td.appendChild(br);
-    td.appendChild(text2);
-	tr.appendChild(td);
-    table.appendChild(tr);
-}
-document.body.appendChild(table);
