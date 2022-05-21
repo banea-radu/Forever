@@ -116,29 +116,41 @@ function getFromDB(User) {
     //        }
     //    })
     //});
-    if (User != 'No user signed in!') {
-	    var table = document.createElement('table');
-		for (var i = 1; i <= 20; i++) {
-			var tr = document.createElement('tr');
-			var td = document.createElement('td');
-			var br1 = document.createElement('BR');
-			var br2 = document.createElement('BR');
-	
-	    		var text1 = document.createTextNode('Nume: ' + 'nume ' + i);
-	    		var text2 = document.createTextNode('Detalii: ' + 'detalii ' + i);
-			var text3 = document.createTextNode('Follow up: ' + '21/05/2022');
-	
-	    		td.appendChild(text1);
-	    		td.appendChild(br1);
-	    		td.appendChild(text2);
-			td.appendChild(br2);
-			td.appendChild(text3);
-			
-			tr.appendChild(td);
-	    		table.appendChild(tr);
-		}
-		document.body.appendChild(table);
-    	}
+	if (User != 'No user signed in!') {
+		onValue(ref(database, 'Frvr/Clienti'), function(snapshot) {
+			snapshot.forEach(function(ChildSnapshot) {
+				var id = ChildSnapshot.key;
+				if (id == 1) {
+					console.log(id);
+				}
+				if (id == 1368) {
+					console.log(id);
+				}
+			})
+		});
+					
+//	    var table = document.createElement('table');
+//		for (var i = 1; i <= 20; i++) {
+//			var tr = document.createElement('tr');
+//			var td = document.createElement('td');
+//			var br1 = document.createElement('BR');
+//			var br2 = document.createElement('BR');
+//	
+//	    		var text1 = document.createTextNode('Nume: ' + 'nume ' + i);
+//	    		var text2 = document.createTextNode('Detalii: ' + 'detalii ' + i);
+//			var text3 = document.createTextNode('Follow up: ' + '21/05/2022');
+//	
+//	    		td.appendChild(text1);
+//	    		td.appendChild(br1);
+//	    		td.appendChild(text2);
+//			td.appendChild(br2);
+//			td.appendChild(text3);
+//			
+//			tr.appendChild(td);
+//	    		table.appendChild(tr);
+//		}
+//		document.body.appendChild(table);
+	}
 	document.getElementById("modal-loader").style.display = "none";
 }
 
