@@ -105,11 +105,6 @@ function testIfUserLogged() {
 }
 
 function getFromDB(User) {
-    console.log("User logged? - "+ User);
-    //var selected_date = new Date(document.getElementById("datepicker").value);
-    //var yyyy = selected_date.getFullYear();
-    //var mm = selected_date.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
-    //var dd = selected_date.getDate();
     //onValue(ref(database, 'Bookings/' + yyyy + '/' + mm + '/' + dd), function(snapshot) {
     //    snapshot.forEach(function(ChildSnapshot) {
     //        var buttonNr = "button" + ChildSnapshot.key.substring(4);
@@ -126,14 +121,18 @@ function getFromDB(User) {
 		for (var i = 1; i <= 20; i++) {
 			var tr = document.createElement('tr');
 			var td = document.createElement('td');
-			var br = document.createElement('BR');
+			var br1 = document.createElement('BR');
+			var br2 = document.createElement('BR');
 	
 	    		var text1 = document.createTextNode('Nume: ' + 'nume ' + i);
 	    		var text2 = document.createTextNode('Detalii: ' + 'detalii ' + i);
+			var text3 = document.createTextNode('Follow up: ' + '21/05/2022');
 	
 	    		td.appendChild(text1);
-	    		td.appendChild(br);
+	    		td.appendChild(br1);
 	    		td.appendChild(text2);
+			td.appendChild(br2);
+			td.appendChild(text3);
 			
 			tr.appendChild(td);
 	    		table.appendChild(tr);
