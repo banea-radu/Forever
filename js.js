@@ -118,17 +118,16 @@ function getFromDB(User) {
     //});
 	if (User != 'No user signed in!') {
 		var table = document.createElement('table');
-		onValue(ref(database, 'Frvr/Clienti/1'), function(snapshot) {
+		onValue(ref(database, 'Frvr/Clienti'), function(snapshot) {
 			snapshot.forEach(function(ChildSnapshot) {
 				var id = ChildSnapshot.key;
-				console.log(ChildSnapshot.key);
 				var tr = document.createElement('tr');
 				var td = document.createElement('td');
 				var br1 = document.createElement('BR');
 				var br2 = document.createElement('BR');
 				var text1 = document.createTextNode(id + '. ' + ChildSnapshot.val().Nume);
 				var text2 = document.createTextNode('Detalii: ' + ChildSnapshot.val().Detalii);
-				var text3 = document.createTextNode('Follow up: ' +  ChildSnapshot.val().Followup);
+				var text3 = document.createTextNode('Follow up: ' +  ChildSnapshot.val().Follow%20up);
 				td.appendChild(text1);
 				td.appendChild(br1);
 				td.appendChild(text2);
