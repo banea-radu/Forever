@@ -110,20 +110,49 @@ function getFromDB(User) {
 		onValue(ref(database, 'Frvr/Clienti'), function(snapshot) {
 			snapshot.forEach(function(ChildSnapshot) {
 				var id = ChildSnapshot.key;
-				var tr = document.createElement('tr');
-				var td = document.createElement('td');
-				var br1 = document.createElement('BR');
-				var br2 = document.createElement('BR');
-				var text1 = document.createTextNode(id + '. ' + ChildSnapshot.val().Nume);
-				var text2 = document.createTextNode('Detalii: ' + ChildSnapshot.val().Detalii);
-				var text3 = document.createTextNode('Follow up: ' +  ChildSnapshot.val().FollowUp);
-				td.appendChild(text1);
-				td.appendChild(br1);
-				td.appendChild(text2);
-				td.appendChild(br2);
-				td.appendChild(text3);
-				tr.appendChild(td);
-				table.appendChild(tr);
+				var tr1 = document.createElement('tr');
+				var tr2 = document.createElement('tr');
+				var tr3 = document.createElement('tr');
+				var td1 = document.createElement('td');
+				var td2 = document.createElement('td');
+                		var td3 = document.createElement('td');
+				var td4 = document.createElement('td');
+                		var td5 = document.createElement('td');
+                		var td6 = document.createElement('td');
+				var td7 = document.createElement('td');
+                		var td8 = document.createElement('td');
+                		var td9 = document.createElement('td');
+				
+				var textId = document.createTextNode(id + '.');
+					td1.appendChild(textId);
+                		var textNume = document.createTextNode(ChildSnapshot.val().Nume);
+                			td2.appendChild(textNume);
+                		var textBlank = document.createTextNode(' ');
+                			td3.appendChild(textBlank);
+                			tr1.appendChild(td1);
+                			tr1.appendChild(td2);
+                			tr1.appendChild(td3);
+				table.appendChild(tr1);
+                
+				td4.appendChild(textBlank);
+                		var textDetaliiLabel = document.createTextNode('Detalii:');
+                			td5.appendChild(textDetaliiLabel);
+                		var textDetalii = document.createTextNode(ChildSnapshot.val().Detalii);
+                			td6.appendChild(textDetalii);
+                			tr2.appendChild(td4);
+                			tr2.appendChild(td5);
+                			tr2.appendChild(td6);
+					table.appendChild(tr2);
+                
+				td7.appendChild(textBlank);
+                		var textDetaliiLabel = document.createTextNode('Follow Up:');
+                			td8.appendChild(textDetaliiLabel);
+                		var textDetalii = document.createTextNode(ChildSnapshot.val().FollowUp);
+                			td9.appendChild(textDetalii);
+                			tr3.appendChild(td7);
+                			tr3.appendChild(td8);
+                			tr3.appendChild(td9);
+					table.appendChild(tr3);
 			})
 		});
 		document.body.appendChild(table);
