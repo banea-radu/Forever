@@ -32,6 +32,10 @@ body { /*this was used to get rid of the white space/paddings from left and top 
     100% { transform: rotate(360deg); }
 }
 
+h2 {
+	text-align: left;
+}
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
