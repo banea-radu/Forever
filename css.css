@@ -43,13 +43,18 @@ table {
 }
 
 td, th {
-  border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
-  width: 50%;
+  width: 30%;
 }
 
-tr:nth-child(even) {
+tr:nth-child(6n+4){
+  background-color: #dddddd;
+}
+tr:nth-child(6n+5) {
+  background-color: #dddddd;
+}
+tr:nth-child(6n+6) {
   background-color: #dddddd;
 }
 
