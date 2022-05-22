@@ -105,17 +105,6 @@ function testIfUserLogged() {
 }
 
 function getFromDB(User) {
-    //onValue(ref(database, 'Bookings/' + yyyy + '/' + mm + '/' + dd), function(snapshot) {
-    //    snapshot.forEach(function(ChildSnapshot) {
-    //        var buttonNr = "button" + ChildSnapshot.key.substring(4);
-    //        if (ChildSnapshot.val().Booker == User) {
-    //            document.getElementById(buttonNr).style.backgroundColor = 'rgb(240, 120, 196)';
-    //            }
-    //        else {
-    //            document.getElementById(buttonNr).style.backgroundColor = 'red';
-    //        }
-    //    })
-    //});
 	if (User != 'No user signed in!') {
 		var table = document.createElement('table');
 		onValue(ref(database, 'Frvr/Clienti'), function(snapshot) {
@@ -127,7 +116,7 @@ function getFromDB(User) {
 				var br2 = document.createElement('BR');
 				var text1 = document.createTextNode(id + '. ' + ChildSnapshot.val().Nume);
 				var text2 = document.createTextNode('Detalii: ' + ChildSnapshot.val().Detalii);
-				var text3 = document.createTextNode('Follow up: ' +  ChildSnapshot.val().Follow%20up);
+				var text3 = document.createTextNode('Follow up: ' +  ChildSnapshot.val().FollowUp);
 				td.appendChild(text1);
 				td.appendChild(br1);
 				td.appendChild(text2);
