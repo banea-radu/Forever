@@ -127,7 +127,8 @@ function getFromDB(User) {
 				var br2 = document.createElement('BR');
 				var text1 = document.createTextNode(id + '. ' + ChildSnapshot.val().Nume);
 				var text2 = document.createTextNode('Detalii: ' + ChildSnapshot.val().Detalii);
-				var text3 = document.createTextNode('Follow up: ' +  ChildSnapshot.val().'Follow up');
+				if (id == 1) { console.log(snapshot.key); }
+				var text3 = document.createTextNode('Follow up: ' +  ChildSnapshot.val().Followup);
 				td.appendChild(text1);
 				td.appendChild(br1);
 				td.appendChild(text2);
