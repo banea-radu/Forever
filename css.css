@@ -38,6 +38,26 @@ h2 {
 	text-align: center;
 }
 
+.input{
+	border:none;
+	font-size:10px;
+}
+      
+.input:focus{
+	outline:none;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -67,15 +87,15 @@ table {
 }
 
 tr:nth-child(6n+4){
-  background-color: #dcd0ff;
+  background-color: #e6e8fa;
 }
 tr:nth-child(6n+5) {
-  background-color: #dcd0ff;
+  background-color: #e6e8fa;
 }
 tr:nth-child(6n+6) {
-  background-color: #dcd0ff;
+  background-color: #e6e8fa;
 }
-tr:hover {background-color: lightgreen;}
+tr:hover {background-color: #ace1af;}
 
 .burgermenu-container {
     position: fixed;
@@ -146,7 +166,7 @@ tr:hover {background-color: lightgreen;}
     text-align: left;
 }
 
-.sidebar-button:hover {background-color: gray}
+.sidebar-button:hover {background-color: #ace1af}
 
 .modal-content-login-menu {
     position: absolute; /* centering horizontally requires the following 3 properties*/
