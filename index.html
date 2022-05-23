@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+	
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -13,9 +14,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Forever">
 </head>
+	
 <body>
 <div id="modal-loader" class="modal-loader modal">
-    <div id="loader"></div>
+	<div id="loader"></div>
 </div>
 <div id="modal-login" class="modal-login modal">
     <div id="login-menu" class="modal-content-login-menu modal-content">
@@ -40,70 +42,32 @@
 </div>
 
 <div>
-<div onclick="void(0);"> <!-- Special container created for Safari windowonclick event fix -->
-    <div>
-        <div class="burgermenu-container" id="button-burger-menu">
-            <svg width="100%" height="100%">>
-                <rect x="25%" y="30%" width="50%" height="10%" rx="12%"></rect>
-                <rect x="25%" y="45%" width="50%" height="10%" rx="12%"></rect>
-                <rect x="25%" y="60%" width="50%" height="10%" rx="12%"></rect>
-            </svg>
-        </div>
-    </div>
-    <div id="modal-sidebar" class="modal-sidebar modal">
-        <div id="sidebar" class="modal-content-sidebar modal-content">
-            <h2 id="SideBarTitle">Forever</h2>
-            <p id="SideBarUserName">User Name</p>
-            <button class="sidebar-button">Profile</button>
-            <hr>
-            <button class="sidebar-button" id="sign-out">Sign-Out</button>
-        </div>
-    </div>
-    <h2>Prospecti Forever</h2>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-    <table id="table"></table>
+	<div onclick="void(0);"> <!-- Special container created for Safari windowonclick event fix -->
+    		<div>
+        		<div class="burgermenu-container" id="button-burger-menu">
+            			<svg width="100%" height="100%">>
+                			<rect x="25%" y="30%" width="50%" height="10%" rx="12%"></rect>
+                			<rect x="25%" y="45%" width="50%" height="10%" rx="12%"></rect>
+                			<rect x="25%" y="60%" width="50%" height="10%" rx="12%"></rect>
+            			</svg>
+        		</div>
+    		</div>
+    		<div id="modal-sidebar" class="modal-sidebar modal">
+        		<div id="sidebar" class="modal-content-sidebar modal-content">
+            			<h2 id="SideBarTitle">Forever</h2>
+            			<p id="SideBarUserName">User Name</p>
+            			<button class="sidebar-button">Profile</button>
+            			<hr>
+            			<button class="sidebar-button" id="sign-out">Sign-Out</button>
+        		</div>
+    		</div>
+    		<h2>Prospecti Forever</h2>
+    		<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+    		<table id="table"></table>
+	</div>
 </div>
-</div>
+
 <script type="module" src="/Forever/js.js"></script>
-<script>
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("table");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-    for (i = 0; i < tr.length; i++) {
-    	td = tr[i].getElementsByTagName("td")[1];
-		if (tr[i].style.display == "") {
-    		if (i % 3 == 0) {
-            	tr[i+1].style.display = "";
-                tr[i+2].style.display = "";
-                i = i + 2;
-            }
-            if (i % 3 == 1) {
-				tr[i-1].style.display = "";
-                tr[i+1].style.display = "";
-                i = i + 2;
-            }
-            if (i % 3 == 2) {
-				tr[i-2].style.display = "";
-                tr[i-1].style.display = "";
-                i = i + 2;
-            }
-		}
-    }       
-}
-                              </script>
+<script src="/Forever/js2.js"></script>
 </body>
 </html>
