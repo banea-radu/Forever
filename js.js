@@ -156,6 +156,62 @@ function getFromDB(User) {
 
     testIfUserLogged(); // needs to be placed after the functions used are defined
 
+var editTB;
+function CreateTable(){
+        var table = document.getElementById("fetch");
+        var row = table.insertRow(0);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        cell1.innerHTML = "Enter your data";
+        cell2.innerHTML = "Enter your data";
+        cell3.innerHTML = "Enter your data";
+        cell4.innerHTML = "Enter your data";
+    }
+    
+table.onclick = function(event) {
+  let target = event.target.closest('.cancel,.ok,td');
+  if (!table.contains(target)) return;
+  if (target.className == 'cancel') {
+    editdone(editTB.elem, false);
+  } else if (target.className == 'ok') {
+    editdone(editTB.elem, true);
+  } else if (target.nodeName == 'TD') {
+    if (editTB) return;
+    editmode(target);
+  }
+};
+
+function editmode(td) {
+  editTB = {
+    elem: td,
+    data: td.innerHTML
+  };
+  td.classList.add('edit-td');
+  let textArea = document.createElement('textarea');
+  textArea.style.width = td.clientWidth + 'px';
+  textArea.style.height = td.clientHeight + 'px';
+  textArea.className = 'edit-area';
+  textArea.value = td.innerHTML;
+  td.innerHTML = '';
+  td.appendChild(textArea);
+  textArea.focus();
+  td.insertAdjacentHTML("beforeEnd",
+    '<div class="edit-controls"><button class="ok">OK</button><button class="cancel">CANCEL</button></div>'
+  );
+}
+
+function editdone(td, isOk) {
+  if (isOk) {
+    td.innerHTML = td.firstChild.value;
+  } else {
+    td.innerHTML = editTB.data;
+  }
+  td.classList.remove('edit-td');
+  editTB = null;
+}
+
 function saveToDB() {
     var selected_date = new Date(document.getElementById("datepicker").value);
     var yyyy = selected_date.getFullYear();
