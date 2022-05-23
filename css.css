@@ -1,8 +1,10 @@
 body { /*this was used to get rid of the white space/paddings from left and top of the screen*/
-    margin-top: 0;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0;
+	margin-top: 0;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: 0;
+	font-family: arial, sans-serif;
+	font-size: 12px;
 }
 
 #loader {
@@ -42,10 +44,31 @@ table {
   width: 100%;
 }
 
-td, th {
+#col1_id {
   text-align: left;
   padding: 8px;
-  width: 30%;
+  width: 10.5%;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#col2_name {
+  text-align: left;
+  padding: 8px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#col1_label {
+  text-align: right;
+  padding: 8px;
+  width: 6%;
+  font-size: 9px;
+}
+
+#col2 {
+  text-align: left;
+  padding: 8px;
 }
 
 tr:nth-child(6n+4){
