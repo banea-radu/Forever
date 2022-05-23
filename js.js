@@ -104,7 +104,8 @@ function testIfUserLogged() {
     );
 }
 
-var table = document.createElement('table');
+//var table = document.createElement('table');
+var table = document.getElementById("table");
 function getFromDB(User) {
 	if (User != 'No user signed in!') {
 		onValue(ref(database, 'Frvr/Clienti'), function(snapshot) {
@@ -157,18 +158,18 @@ function getFromDB(User) {
     testIfUserLogged(); // needs to be placed after the functions used are defined
 
 var editTB;
-function CreateTable(){
-        var table = document.getElementById("table");
-        var row = table.insertRow(0);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        cell1.innerHTML = "Enter your data";
-        cell2.innerHTML = "Enter your data";
-        cell3.innerHTML = "Enter your data";
-        cell4.innerHTML = "Enter your data";
-    }
+//function CreateTable(){
+//        var table = document.getElementById("table");
+//        var row = table.insertRow(0);
+//        var cell1 = row.insertCell(0);
+//        var cell2 = row.insertCell(1);
+//        var cell3 = row.insertCell(2);
+//        var cell4 = row.insertCell(3);
+//        cell1.innerHTML = "Enter your data";
+//        cell2.innerHTML = "Enter your data";
+//        cell3.innerHTML = "Enter your data";
+//        cell4.innerHTML = "Enter your data";
+//    }
     
 table.onclick = function(event) {
   let target = event.target.closest('.cancel,.ok,td');
@@ -211,6 +212,45 @@ function editdone(td, isOk) {
   }
   td.classList.remove('edit-td');
   editTB = null;
+}
+
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("table");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+    for (i = 0; i < tr.length; i++) {
+    	td = tr[i].getElementsByTagName("td")[1];
+		if (tr[i].style.display == "") {
+    		if (i % 3 == 0) {
+            	tr[i+1].style.display = "";
+                tr[i+2].style.display = "";
+                i = i + 2;
+            }
+            if (i % 3 == 1) {
+				tr[i-1].style.display = "";
+                tr[i+1].style.display = "";
+                i = i + 2;
+            }
+            if (i % 3 == 2) {
+				tr[i-2].style.display = "";
+                tr[i-1].style.display = "";
+                i = i + 2;
+            }
+		}
+    }       
 }
 
 function saveToDB() {
