@@ -178,8 +178,9 @@ table.onclick = function(event) {
   } else if (target.className == 'ok') {
     editdone(editTB.elem, true);
   } else if (target.nodeName == 'TD') {
-    if (editTB) return;
-    editmode(target);
+	if (editTB) return; //if editmode already opened then exit function
+	if ((target.id == "col1_id") || (target.id == "col1_label")) return; //if first column clicked then exit function
+	editmode(target);
   }
 };
 
