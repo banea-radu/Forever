@@ -104,9 +104,9 @@ function testIfUserLogged() {
     );
 }
 
+var table = document.createElement('table');
 function getFromDB(User) {
 	if (User != 'No user signed in!') {
-		var table = document.createElement('table');
 		onValue(ref(database, 'Frvr/Clienti'), function(snapshot) {
 			snapshot.forEach(function(ChildSnapshot) {
 				var id = ChildSnapshot.key;
@@ -158,7 +158,7 @@ function getFromDB(User) {
 
 var editTB;
 function CreateTable(){
-        var table = document.getElementById("fetch");
+        var table = document.getElementById("table");
         var row = table.insertRow(0);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
