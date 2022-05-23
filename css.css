@@ -67,13 +67,13 @@ table {
 }
 
 tr:nth-child(6n+4){
-  background-color: #dddddd;
+  background-color: #dcd0ff;
 }
 tr:nth-child(6n+5) {
-  background-color: #dddddd;
+  background-color: #dcd0ff;
 }
 tr:nth-child(6n+6) {
-  background-color: #dddddd;
+  background-color: #dcd0ff;
 }
 tr:hover {background-color: lightgreen;}
 
