@@ -1,30 +1,36 @@
 function filter() { // created 2nd js file because the onkeydown event was not working in the 1st js file
-	let classes = [];
 	var input, filter, table, tr, td, i, txtValue;
-  	input = document.getElementById("myInput");
-  	filter = input.value.toUpperCase();
-  	table = document.getElementById("table");
-  	tr = table.getElementsByTagName("tr");
-  	trcol = Array.from(tr);
-  	tdr = table.getElementsByTagName("td");
-  	tdCol = Array.from(tdr);
-  	tdCol.forEach(function(td){
-  		if (td) {
+	input = document.getElementById("myInput");
+	filter = input.value.toUpperCase();
+	table = document.getElementById("table");
+	tr = table.getElementsByTagName("tr");
+	for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName("td")[1];
+		if (td) {
       			txtValue = td.textContent || td.innerText;
       			if (txtValue.toUpperCase().indexOf(filter) > -1) {
-				classes.push(td.parentElement.className);       
-      			} 
-	  		showHideRows(classes);
-    		}      
-  	})
+        			if (i % 3 == 0) {
+	        			tr[i].style.display = "";
+	            			tr[i+1].style.display = "";
+	            			tr[i+2].style.display = "";
+	            			i = i+2;
+	        		}
+				if (i % 3 == 1) {
+	        			tr[i-1].style.display = "";
+	            			tr[i].style.display = "";
+					tr[i+1].style.display = "";
+	            			i = i+1;
+	        		}
+	        		if (i % 3 == 2) {
+	        			tr[i-2].style.display = "";
+	            			tr[i-1].style.display = "";
+	            			tr[i].style.display = "";
+	            			i = i;
+	        		}
+	      		} else {
+	      			tr[i].style.display = "none";
+	      		}
+	    	}       
+  	}
 }
 
-function showHideRows(cls){
-	trcol.forEach(function(tr){
-		if((cls.indexOf(tr.className) > -1)){
-			tr.style.display = "";
-		} else{
-			tr.style.display = "none";
-		}
-	})
-}
