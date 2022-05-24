@@ -107,6 +107,7 @@ function testIfUserLogged() {
 //var table = document.createElement('table');
 var table = document.getElementById("table");
 function getFromDB(User) {
+	var i_classList = 1;
 	if (User != 'No user signed in!') {
 		onValue(ref(database, 'Frvr/Clienti'), function(snapshot) {
 			snapshot.forEach(function(ChildSnapshot) {
@@ -114,9 +115,9 @@ function getFromDB(User) {
 				var tr1 = document.createElement('tr');
 				var tr2 = document.createElement('tr');
 				var tr3 = document.createElement('tr');
-					tr1.classList.add("row_" + i);
-					tr2.classList.add("row_" + i);
-					tr3.classList.add("row_" + i);
+					tr1.classList.add("row_" + i_classList);
+					tr2.classList.add("row_" + i_classList);
+					tr3.classList.add("row_" + i_classList);
 				var tr1td1 = document.createElement('td');
 				tr1td1.id = "col1_id";
 				var tr1td2 = document.createElement('td');
@@ -151,6 +152,7 @@ function getFromDB(User) {
                 		tr3.appendChild(tr3td1);
                 		tr3.appendChild(tr3td2);
 				table.appendChild(tr3);
+				i_classList = i_classList + 1;
 			})
 		});
 		document.body.appendChild(table);
