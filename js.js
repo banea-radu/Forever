@@ -18,7 +18,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase();
 const auth = getAuth();
-console.log('Firebase init completed!');
+//console.log('Firebase init completed!');
 
 //Get Elements for login
 const txtEmail = document.getElementById("txtEmail");
@@ -107,7 +107,6 @@ function testIfUserLogged() {
 //var table = document.createElement('table');
 var table = document.getElementById("table");
 function getFromDB(User) {
-	var i_classList = 1;
 	if (User != 'No user signed in!') {
 		onValue(ref(database, 'Frvr/Clienti'), function(snapshot) {
 			snapshot.forEach(function(ChildSnapshot) {
@@ -115,9 +114,6 @@ function getFromDB(User) {
 				var tr1 = document.createElement('tr');
 				var tr2 = document.createElement('tr');
 				var tr3 = document.createElement('tr');
-					tr1.classList.add("row_" + i_classList);
-					tr2.classList.add("row_" + i_classList);
-					tr3.classList.add("row_" + i_classList);
 				var tr1td1 = document.createElement('td');
 				tr1td1.id = "col1_id";
 				var tr1td2 = document.createElement('td');
@@ -191,59 +187,65 @@ table.onclick = function(event) {
 };
 
 function editmode(td) {
-  editTB = {
-    elem: td,
-    data: td.innerHTML
-  };
-  td.classList.add('edit-td');
-  let textArea = document.createElement('textarea');
-  textArea.style.width = td.clientWidth + 'px';
-  textArea.style.height = td.clientHeight + 'px';
-  textArea.className = 'edit-area';
-  textArea.value = td.innerHTML;
-  td.innerHTML = '';
-  td.appendChild(textArea);
-  textArea.focus();
-  td.insertAdjacentHTML("beforeEnd",
-    '<div class="edit-controls"><button class="ok">OK</button><button class="cancel">CANCEL</button></div>'
-  );
+	editTB = {
+		elem: td,
+		data: td.innerHTML
+	};
+	td.classList.add('edit-td');
+	let textArea = document.createElement('textarea');
+	textArea.style.width = td.clientWidth + 'px';
+	textArea.style.height = td.clientHeight + 'px';
+	textArea.className = 'edit-area';
+	textArea.value = td.innerHTML;
+	td.innerHTML = '';
+	td.appendChild(textArea);
+	textArea.focus();
+	td.insertAdjacentHTML("beforeEnd",
+		'<div class="edit-controls"><button class="ok">OK</button><button class="cancel">CANCEL</button></div>'
+	);
 }
 
 function editdone(td, isOk) {
-  if (isOk) {
-    td.innerHTML = td.firstChild.value;
-  } else {
-    td.innerHTML = editTB.data;
-  }
-  td.classList.remove('edit-td');
-  editTB = null;
+	if (isOk) {
+		td.innerHTML = td.firstChild.value;
+		saveToDB(1, td.firstChild.value);
+	} else {
+		td.innerHTML = editTB.data;
+  	}
+  	td.classList.remove('edit-td');
+  	editTB = null;
 }
 
-function saveToDB() {
-    var selected_date = new Date(document.getElementById("datepicker").value);
-    var yyyy = selected_date.getFullYear();
-    var mm = selected_date.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
-    var dd = selected_date.getDate();
-    //console.log('Bookings/' + yyyy + '/' + mm + '/' + dd);
-    var booker = document.getElementById("SideBarUserName").innerHTML;
-    var deskNr = document.getElementById("booking-menu-label-desk-number").innerHTML.split(" Number ")[1];
-    //console.log(yyyy, mm, dd, booker, deskNr);
-    set(ref(database, 'Bookings/' + yyyy + '/' + mm + '/' + dd + '/Desk' + deskNr ), {
-        Booker: booker
-    });
+function saveToDB(id, DataToSave) {
+	console.log(id, DataToSave);
+//	set(ref(database, 'Frvr/Clienti/' + id), {
+//		Detalii: booker
+//    });	
 }
+//    var yyyy = selected_date.getFullYear();
+//    var mm = selected_date.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
+//    var dd = selected_date.getDate();
+//    //console.log('Bookings/' + yyyy + '/' + mm + '/' + dd);
+//    var booker = document.getElementById("SideBarUserName").innerHTML;
+//    var deskNr = document.getElementById("booking-menu-label-desk-number").innerHTML.split(" Number ")[1];
+//    //console.log(yyyy, mm, dd, booker, deskNr);
+//    set(ref(database, 'Bookings/' + yyyy + '/' + mm + '/' + dd + '/Desk' + deskNr ), {
+//        Booker: booker
+//    });
 
-function deleteFromDB() {
-    //var keyDate = document.getElementById("datepicker").value;
-    var selected_date = new Date(document.getElementById("datepicker").value);
-    var yyyy = selected_date.getFullYear();
-    var mm = selected_date.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
-    var dd = selected_date.getDate();
-    var deskNr = document.getElementById("booking-menu-label-desk-number").innerHTML.split(" Number ")[1];
-    //console.log(keyDate + '-Desk' + deskNr);
-    //remove(ref(database, 'Date/' + keyDate + "-Desk" + deskNr ));
-    remove(ref(database, 'Bookings/' + yyyy + '/' + mm + '/' + dd + '/Desk' + deskNr ));
-}
+		
+		
+//function deleteFromDB() {
+//    //var keyDate = document.getElementById("datepicker").value;
+//    var selected_date = new Date(document.getElementById("datepicker").value);
+//    var yyyy = selected_date.getFullYear();
+//    var mm = selected_date.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
+//    var dd = selected_date.getDate();
+//    var deskNr = document.getElementById("booking-menu-label-desk-number").innerHTML.split(" Number ")[1];
+//    //console.log(keyDate + '-Desk' + deskNr);
+//    //remove(ref(database, 'Date/' + keyDate + "-Desk" + deskNr ));
+//    remove(ref(database, 'Bookings/' + yyyy + '/' + mm + '/' + dd + '/Desk' + deskNr ));
+//}
 
 function openLoginWindow() {
     document.getElementById("modal-loader").style.display = "none";
