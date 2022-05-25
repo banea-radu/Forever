@@ -227,6 +227,7 @@ function editdone(targetId, td, isOk) {
 }
 
 function saveToDB(targetId, FieldToSave, DataToSave) {
+	console.log(targetId);
 	onValue(ref(database, 'Frvr/Clienti/' + targetId), function(snapshot) {
 		snapshot.forEach(function(ChildSnapshot) {
 			var DbName = ChildSnapshot.val().Nume;
