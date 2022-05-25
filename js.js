@@ -172,17 +172,18 @@ var editTB;
 //    }
     
 table.onclick = function(event) {
-  let target = event.target.closest('.cancel,.ok,td');
-  if (!table.contains(target)) return;
-  if (target.className == 'cancel') {
-    editdone(editTB.elem, false);
-  } else if (target.className == 'ok') {
-    editdone(editTB.elem, true);
-  } else if (target.nodeName == 'TD') {
-	if (editTB) return; //if editmode already opened then exit function
-	if ((target.id == "col1_id") || (target.id == "col1_label")) return; //if first column clicked then exit function
-	editmode(target);
-  }
+  	let target = event.target.closest('.cancel,.ok,td');
+	let targetId = event.target.closest('tr').className.substring(4);
+	if (!table.contains(target)) return;
+	if (target.className == 'cancel') {
+		editdone(targetId, editTB.elem, false);
+	} else if (target.className == 'ok') {
+    		editdone(targetId, editTB.elem, true);
+  	} else if (target.nodeName == 'TD') {
+		if (editTB) return; //if editmode already opened then exit function
+		if ((target.id == "col1_id") || (target.id == "col1_label")) return; //if first column clicked then exit function
+		editmode(target);
+  	}
 };
 
 function editmode(td) {
@@ -204,10 +205,10 @@ function editmode(td) {
 	);
 }
 
-function editdone(td, isOk) {
+function editdone(targetId, td, isOk) {
 	if (isOk) {
 		td.innerHTML = td.firstChild.value;
-		saveToDB(1, td.firstChild.value);
+		saveToDB(targetId, td.innerHTML);
 	} else {
 		td.innerHTML = editTB.data;
   	}
@@ -215,10 +216,10 @@ function editdone(td, isOk) {
   	editTB = null;
 }
 
-function saveToDB(id, DataToSave) {
-	console.log(id, DataToSave);
+function saveToDB(targetId, DataToSave) {
+	console.log(targetId, DataToSave);
 //	set(ref(database, 'Frvr/Clienti/' + id), {
-//		Detalii: booker
+//		Detalii: DataToSave
 //    });	
 }
 //    var yyyy = selected_date.getFullYear();
