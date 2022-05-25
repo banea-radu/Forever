@@ -227,22 +227,33 @@ function editdone(targetId, td, isOk) {
 }
 
 function saveToDB(targetId, FieldToSave, DataToSave) {
-	//console.log(targetId, FieldToSave, DataToSave);
-	if (FieldToSave == "class_Nume") {
-		set(ref(database, 'Frvr/Clienti/' + targetId), {
-			Nume: DataToSave
-		});
-	}
-	if (FieldToSave == "class_Detalii") {
-		set(ref(database, 'Frvr/Clienti/' + targetId), {
-			Detalii: DataToSave
-		});
-	}
-	if (FieldToSave == "class_FollowUp") {
-		set(ref(database, 'Frvr/Clienti/' + targetId), {
-			FollowUp: DataToSave
-		});
-	}	
+	onValue(ref(database, 'Frvr/Clienti/' + targetId), function(snapshot) {
+		var DbName = ChildSnapshot.val().Nume;
+		var DbDetalii = ChildSnapshot.val().Detalii;
+		var DbFollowUp = ChildSnapshot.val().FollowUp;
+	});
+	console.log(DbName, DbDetalii, DbFollowUp);
+//	if (FieldToSave == "class_Nume") {
+//		set(ref(database, 'Frvr/Clienti/' + targetId), {
+//			Nume: DataToSave,
+//			Detalii: DbDetalii,
+//			FollowUp: DbFollowUp
+//		});
+//	}
+//	if (FieldToSave == "class_Detalii") {
+//		set(ref(database, 'Frvr/Clienti/' + targetId), {
+//			Nume: DbName,
+//			Detalii: DataToSave,
+//			FollowUp: DbFollowUp
+//		});
+//	}
+//	if (FieldToSave == "class_FollowUp") {
+//		set(ref(database, 'Frvr/Clienti/' + targetId), {
+//			Nume: DbName,
+//			Detalii: DbDetalii,
+//			FollowUp: DataToSave
+//		});
+//	}	
 }
 //    var yyyy = selected_date.getFullYear();
 //    var mm = selected_date.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
