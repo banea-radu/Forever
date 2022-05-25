@@ -244,6 +244,17 @@ function deleteFromDB() {
     //remove(ref(database, 'Date/' + keyDate + "-Desk" + deskNr ));
     remove(ref(database, 'Bookings/' + yyyy + '/' + mm + '/' + dd + '/Desk' + deskNr ));
 }
+
+function openLoginWindow() {
+    document.getElementById("modal-loader").style.display = "none";
+    document.getElementById("modal-login").style.transform = "translateY(0%)";
+    document.getElementById("login-menu").style.transform = "translateY(0%)";
+}
+
+function closeLoginWindow() {
+    document.getElementById("modal-login").style.transform = "translateY(-100%)";
+    document.getElementById("login-menu").style.transform = "translateY(-100%)";
+}
 /*DATABASE<---------------------------------------------------------------------*/
 
 document.getElementById("button-burger-menu").addEventListener('click', function(event) {
@@ -267,13 +278,16 @@ document.getElementById("modal-sidebar").addEventListener('click', function(even
     }
 });
 
-function openLoginWindow() {
-    document.getElementById("modal-loader").style.display = "none";
-    document.getElementById("modal-login").style.transform = "translateY(0%)";
-    document.getElementById("login-menu").style.transform = "translateY(0%)";
+var TopButton = document.getElementById("TopBtn");
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		TopButton.style.display = "block";
+	} else {
+		TopButton.style.display = "none";
+	}
 }
-
-function closeLoginWindow() {
-    document.getElementById("modal-login").style.transform = "translateY(-100%)";
-    document.getElementById("login-menu").style.transform = "translateY(-100%)";
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }
