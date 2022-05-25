@@ -178,6 +178,7 @@ table.onclick = function(event) {
 	if (target.className == 'cancel') {
 		editdone(targetId, editTB.elem, false);
 	} else if (target.className == 'ok') {
+		console.log(targetId);
     		editdone(targetId, editTB.elem, true);
   	} else if (target.nodeName == 'TD') {
 		if (editTB) return; //if editmode already opened then exit function
@@ -207,7 +208,6 @@ function editmode(td) {
 
 function editdone(targetId, td, isOk) {
 	if (isOk) {
-		console.log(targetId);
 		td.innerHTML = td.firstChild.value;
 		//saveToDB(targetId, td.innerHTML);
 	} else {
