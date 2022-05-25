@@ -48,14 +48,18 @@ h2 {
 }
 
 #myInput {
-  background-image: url('/css/searchicon.png');
+  background-image: url('/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  width: 90%;
+  width: 50vw;
+  max-width: 50vw;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
   margin-bottom: 12px;
+  position: relative;
+  left:25vw;
+  border-radius: 12px;
 }
 
 table {
