@@ -148,7 +148,6 @@ function getFromDB(User) {
                 		tr3.appendChild(tr3td1);
                 		tr3.appendChild(tr3td2);
 				table.appendChild(tr3);
-				i_classList = i_classList + 1;
 			})
 		});
 		document.body.appendChild(table);
