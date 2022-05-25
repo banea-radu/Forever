@@ -229,13 +229,16 @@ function editdone(targetId, td, isOk) {
 function saveToDB(targetId, FieldToSave, DataToSave) {
 	console.log(targetId);
 	onValue(ref(database, 'Frvr/Clienti/' + targetId), function(snapshot) {
+		console.log("Starting Snapshot");
 		snapshot.forEach(function(ChildSnapshot) {
+			console.log("Starting ChildSnapshot");
 			var DbName = ChildSnapshot.val().Nume;
 			var DbDetalii = ChildSnapshot.val().Detalii;
 			var DbFollowUp = ChildSnapshot.val().FollowUp;
 		})
+		console.log("Exiting Snapshot");
+		console.log(DbName, DbDetalii, DbFollowUp);
 	});
-	console.log(DbName, DbDetalii, DbFollowUp);
 //	if (FieldToSave == "class_Nume") {
 //		set(ref(database, 'Frvr/Clienti/' + targetId), {
 //			Nume: DataToSave,
