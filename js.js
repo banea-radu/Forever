@@ -114,6 +114,9 @@ function getFromDB(User) {
 				var tr1 = document.createElement('tr');
 				var tr2 = document.createElement('tr');
 				var tr3 = document.createElement('tr');
+				tr1.classList.add("row_" + i);
+				tr2.classList.add("row_" + i);
+				tr3.classList.add("row_" + i);
 				var tr1td1 = document.createElement('td');
 				tr1td1.id = "col1_id";
 				var tr1td2 = document.createElement('td');
@@ -178,7 +181,6 @@ table.onclick = function(event) {
 	if (target.className == 'cancel') {
 		editdone(targetId, editTB.elem, false);
 	} else if (target.className == 'ok') {
-		console.log(targetId);
     		editdone(targetId, editTB.elem, true);
   	} else if (target.nodeName == 'TD') {
 		if (editTB) return; //if editmode already opened then exit function
@@ -209,7 +211,7 @@ function editmode(td) {
 function editdone(targetId, td, isOk) {
 	if (isOk) {
 		td.innerHTML = td.firstChild.value;
-		//saveToDB(targetId, td.innerHTML);
+		saveToDB(targetId, td.innerHTML);
 	} else {
 		td.innerHTML = editTB.data;
   	}
