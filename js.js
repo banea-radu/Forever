@@ -184,9 +184,9 @@ table.onclick = function(event) {
 	let targetId = event.target.closest('tr').className.substring(4);
 	if (!table.contains(target)) return;
 	if (target.className == 'cancel') {
-		editdone(editTB.elem, false);
+		editdone(targetId, editTB.elem, false);
 	} else if (target.className == 'ok') {
-    		editdone(editTB.elem, true);
+    		editdone(targetId, editTB.elem, true);
   	} else if (target.nodeName == 'TD') {
 		if (editTB) return; //if editmode already opened then exit function
 		if ((target.id == "col1_id") || (target.id == "col1_label")) return; //if first column clicked then exit function
@@ -214,7 +214,7 @@ function editmode(td) {
 	);
 }
 
-function editdone(td, isOk) {
+function editdone(targetId, td, isOk) {
 	if (isOk) {
 		td.innerHTML = td.firstChild.value;
 		saveToDB(targetId, td.class, td.innerHTML);
