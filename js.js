@@ -217,7 +217,8 @@ function editmode(td) {
 function editdone(targetId, td, isOk) {
 	if (isOk) {
 		td.innerHTML = td.firstChild.value;
-		saveToDB(targetId, td.class, td.innerHTML);
+		var FieldToSave = td.firstChild.className;
+		saveToDB(targetId, FieldToSave, td.innerHTML);
 	} else {
 		td.innerHTML = editTB.data;
   	}
