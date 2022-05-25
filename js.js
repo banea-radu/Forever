@@ -207,8 +207,9 @@ function editmode(td) {
 
 function editdone(targetId, td, isOk) {
 	if (isOk) {
+		console.log(targetId);
 		td.innerHTML = td.firstChild.value;
-		saveToDB(targetId, td.innerHTML);
+		//saveToDB(targetId, td.innerHTML);
 	} else {
 		td.innerHTML = editTB.data;
   	}
