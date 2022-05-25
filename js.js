@@ -108,8 +108,10 @@ function testIfUserLogged() {
 var table = document.getElementById("table");
 function getFromDB(User) {
 	if (User != 'No user signed in!') {
+		var i = 0;
 		onValue(ref(database, 'Frvr/Clienti'), function(snapshot) {
 			snapshot.forEach(function(ChildSnapshot) {
+				i = i + 1;
 				var id = ChildSnapshot.key;
 				var tr1 = document.createElement('tr');
 				var tr2 = document.createElement('tr');
