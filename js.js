@@ -116,19 +116,22 @@ function getFromDB(User) {
 				var tr1 = document.createElement('tr');
 				var tr2 = document.createElement('tr');
 				var tr3 = document.createElement('tr');
-				tr1.classList.add("row_" + i);
-				tr2.classList.add("row_" + i);
-				tr3.classList.add("row_" + i);
+					tr1.classList.add("row_" + i);
+					tr2.classList.add("row_" + i);
+					tr3.classList.add("row_" + i);
 				var tr1td1 = document.createElement('td');
-				tr1td1.id = "col1_id";
+					tr1td1.id = "col1_id";
 				var tr1td2 = document.createElement('td');
-				tr1td2.id = "col2_name";
+					tr1td2.id = "col2_name";
+					tr1td2.classList.add("class_Nume");
                 		var tr2td1 = document.createElement('td');
-				tr2td1.id = "col1_label";
+					tr2td1.id = "col1_label";
 				var tr2td2 = document.createElement('td');
+					tr2td2.classList.add("class_Detalii");
 				var tr3td1 = document.createElement('td');
-				tr3td1.id = "col1_label";
+					tr3td1.id = "col1_label";
                 		var tr3td2 = document.createElement('td');
+					tr3td2.classList.add("class_FollowUp");
 				
 				var textId = document.createTextNode(id + '.');
 					tr1td1.appendChild(textId);
@@ -181,9 +184,9 @@ table.onclick = function(event) {
 	let targetId = event.target.closest('tr').className.substring(4);
 	if (!table.contains(target)) return;
 	if (target.className == 'cancel') {
-		editdone(targetId, editTB.elem, false);
+		editdone(editTB.elem, false);
 	} else if (target.className == 'ok') {
-    		editdone(targetId, editTB.elem, true);
+    		editdone(editTB.elem, true);
   	} else if (target.nodeName == 'TD') {
 		if (editTB) return; //if editmode already opened then exit function
 		if ((target.id == "col1_id") || (target.id == "col1_label")) return; //if first column clicked then exit function
@@ -194,7 +197,8 @@ table.onclick = function(event) {
 function editmode(td) {
 	editTB = {
 		elem: td,
-		data: td.innerHTML
+		data: td.innerHTML,
+		class: td.className
 	};
 	td.classList.add('edit-td');
 	let textArea = document.createElement('textarea');
@@ -210,10 +214,10 @@ function editmode(td) {
 	);
 }
 
-function editdone(targetId, td, isOk) {
+function editdone(td, isOk) {
 	if (isOk) {
 		td.innerHTML = td.firstChild.value;
-		saveToDB(targetId, td.innerHTML);
+		saveToDB(targetId, td.class, td.innerHTML);
 	} else {
 		td.innerHTML = editTB.data;
   	}
@@ -221,8 +225,8 @@ function editdone(targetId, td, isOk) {
   	editTB = null;
 }
 
-function saveToDB(targetId, DataToSave) {
-	console.log(targetId, DataToSave);
+function saveToDB(targetId, FieldToSave, DataToSave) {
+	console.log(targetId, FieldToSave, DataToSave);
 //	set(ref(database, 'Frvr/Clienti/' + id), {
 //		Detalii: DataToSave
 //    });	
