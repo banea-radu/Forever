@@ -226,16 +226,19 @@ function editdone(targetId, td, isOk) {
   	editTB = null;
 }
 
+var DbName;
+var DbDetalii;
+var DbFollowUp;
 function saveToDB(targetId, FieldToSave, DataToSave) {
 	console.log(targetId);
 	onValue(ref(database, 'Frvr/Clienti/' + targetId), function(snapshot) {
 		console.log("Starting Snapshot");
-		snapshot.forEach(function(ChildSnapshot) {
-			console.log("Starting ChildSnapshot");
-			var DbName = ChildSnapshot.val().Nume;
-			var DbDetalii = ChildSnapshot.val().Detalii;
-			var DbFollowUp = ChildSnapshot.val().FollowUp;
-		})
+//		snapshot.forEach(function(ChildSnapshot) {
+//			console.log("Starting ChildSnapshot");
+			DbName = ChildSnapshot.val().Nume;
+			DbDetalii = ChildSnapshot.val().Detalii;
+			DbFollowUp = ChildSnapshot.val().FollowUp;
+//		})
 		console.log("Exiting Snapshot");
 		console.log(DbName, DbDetalii, DbFollowUp);
 	});
