@@ -227,10 +227,18 @@ function editdone(targetId, td, isOk) {
 }
 
 function saveToDB(targetId, FieldToSave, DataToSave) {
-	console.log(targetId, FieldToSave, DataToSave);
-//	set(ref(database, 'Frvr/Clienti/' + id), {
-//		Detalii: DataToSave
-//    });	
+	//console.log(targetId, FieldToSave, DataToSave);
+	set(ref(database, 'Frvr/Clienti/' + targetId), {
+		if (FieldToSave == "class_Nume") {
+			Nume: DataToSave
+		}
+		if (FieldToSave == "class_Detalii") {
+			Detalii: DataToSave
+		}
+		if (FieldToSave == "class_FollowUp") {
+			FollowUp: DataToSave
+		}
+	});	
 }
 //    var yyyy = selected_date.getFullYear();
 //    var mm = selected_date.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
