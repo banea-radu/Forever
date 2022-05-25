@@ -228,9 +228,11 @@ function editdone(targetId, td, isOk) {
 
 function saveToDB(targetId, FieldToSave, DataToSave) {
 	onValue(ref(database, 'Frvr/Clienti/' + targetId), function(snapshot) {
-		var DbName = ChildSnapshot.val().Nume;
-		var DbDetalii = ChildSnapshot.val().Detalii;
-		var DbFollowUp = ChildSnapshot.val().FollowUp;
+		snapshot.forEach(function(ChildSnapshot) {
+			var DbName = ChildSnapshot.val().Nume;
+			var DbDetalii = ChildSnapshot.val().Detalii;
+			var DbFollowUp = ChildSnapshot.val().FollowUp;
+		})
 	});
 	console.log(DbName, DbDetalii, DbFollowUp);
 //	if (FieldToSave == "class_Nume") {
