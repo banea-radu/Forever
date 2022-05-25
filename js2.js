@@ -34,3 +34,7 @@ function filter() { // created 2nd js file because the onkeydown event was not w
   	}
 }
 
+function topFunction() {
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
+}
