@@ -230,49 +230,34 @@ var DbName;
 var DbDetalii;
 var DbFollowUp;
 function saveToDB(targetId, FieldToSave, DataToSave) {
-	console.log(targetId);
 	onValue(ref(database, 'Frvr/Clienti/' + targetId), function(ChildSnapshot) {
 		DbName = ChildSnapshot.val().Nume;
 		DbDetalii = ChildSnapshot.val().Detalii;
 		DbFollowUp = ChildSnapshot.val().FollowUp;
-		console.log("1 - ", DbName, DbDetalii, DbFollowUp);
 	});
-	console.log("2 - ", DbName, DbDetalii, DbFollowUp);
-//	if (FieldToSave == "class_Nume") {
-//		set(ref(database, 'Frvr/Clienti/' + targetId), {
-//			Nume: DataToSave,
-//			Detalii: DbDetalii,
-//			FollowUp: DbFollowUp
-//		});
-//	}
-//	if (FieldToSave == "class_Detalii") {
-//		set(ref(database, 'Frvr/Clienti/' + targetId), {
-//			Nume: DbName,
-//			Detalii: DataToSave,
-//			FollowUp: DbFollowUp
-//		});
-//	}
-//	if (FieldToSave == "class_FollowUp") {
-//		set(ref(database, 'Frvr/Clienti/' + targetId), {
-//			Nume: DbName,
-//			Detalii: DbDetalii,
-//			FollowUp: DataToSave
-//		});
-//	}	
+	if (FieldToSave == "class_Nume") {
+		set(ref(database, 'Frvr/Clienti/' + targetId), {
+			Nume: DataToSave,
+			Detalii: DbDetalii,
+			FollowUp: DbFollowUp
+		});
+	}
+	if (FieldToSave == "class_Detalii") {
+		set(ref(database, 'Frvr/Clienti/' + targetId), {
+			Nume: DbName,
+			Detalii: DataToSave,
+			FollowUp: DbFollowUp
+		});
+	}
+	if (FieldToSave == "class_FollowUp") {
+		set(ref(database, 'Frvr/Clienti/' + targetId), {
+			Nume: DbName,
+			Detalii: DbDetalii,
+			FollowUp: DataToSave
+		});
+	}	
 }
-//    var yyyy = selected_date.getFullYear();
-//    var mm = selected_date.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
-//    var dd = selected_date.getDate();
-//    //console.log('Bookings/' + yyyy + '/' + mm + '/' + dd);
-//    var booker = document.getElementById("SideBarUserName").innerHTML;
-//    var deskNr = document.getElementById("booking-menu-label-desk-number").innerHTML.split(" Number ")[1];
-//    //console.log(yyyy, mm, dd, booker, deskNr);
-//    set(ref(database, 'Bookings/' + yyyy + '/' + mm + '/' + dd + '/Desk' + deskNr ), {
-//        Booker: booker
-//    });
-
-		
-		
+	
 //function deleteFromDB() {
 //    //var keyDate = document.getElementById("datepicker").value;
 //    var selected_date = new Date(document.getElementById("datepicker").value);
