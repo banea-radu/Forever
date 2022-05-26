@@ -237,7 +237,6 @@ function saveToDB(targetId, FieldToSave, DataToSave) {
 		DbDetalii = ChildSnapshot.val().Detalii;
 			DbFollowUp = Snapshot.val().FollowUp;
 			console.log("Exiting ChildSnapshot");
-		})
 		console.log("Exiting Snapshot");
 		console.log(DbName, DbDetalii, DbFollowUp);
 	});
