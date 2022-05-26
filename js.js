@@ -233,11 +233,9 @@ function saveToDB(targetId, FieldToSave, DataToSave) {
 	console.log(targetId);
 	onValue(ref(database, 'Frvr/Clienti/' + targetId), function(snapshot) {
 		console.log("Starting Snapshot");
-		snapshot(function(ChildSnapshot) {
-			console.log("Starting ChildSnapshot");
-			DbName = ChildSnapshot.val().Nume;
-			DbDetalii = ChildSnapshot.val().Detalii;
-			DbFollowUp = ChildSnapshot.val().FollowUp;
+		DbName = Snapshot.val().Nume;
+		DbDetalii = ChildSnapshot.val().Detalii;
+			DbFollowUp = Snapshot.val().FollowUp;
 			console.log("Exiting ChildSnapshot");
 		})
 		console.log("Exiting Snapshot");
