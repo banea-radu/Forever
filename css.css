@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body { /*this was used to get rid of the white space/paddings from left and top of the screen*/
 	margin-top: 0;
 	margin-left: 0;
