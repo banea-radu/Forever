@@ -231,15 +231,13 @@ var DbDetalii;
 var DbFollowUp;
 function saveToDB(targetId, FieldToSave, DataToSave) {
 	console.log(targetId);
-	onValue(ref(database, 'Frvr/Clienti/' + targetId), function(snapshot) {
-		console.log("Starting Snapshot");
-		DbName = Snapshot.val().Nume;
+	onValue(ref(database, 'Frvr/Clienti/' + targetId), function(ChildSnapshot) {
+		DbName = ChildSnapshot.val().Nume;
 		DbDetalii = ChildSnapshot.val().Detalii;
-			DbFollowUp = Snapshot.val().FollowUp;
-			console.log("Exiting ChildSnapshot");
-		console.log("Exiting Snapshot");
-		console.log(DbName, DbDetalii, DbFollowUp);
+		DbFollowUp = ChildSnapshot.val().FollowUp;
+		console.log("1 - ", DbName, DbDetalii, DbFollowUp);
 	});
+	console.log("2 - ", DbName, DbDetalii, DbFollowUp);
 //	if (FieldToSave == "class_Nume") {
 //		set(ref(database, 'Frvr/Clienti/' + targetId), {
 //			Nume: DataToSave,
