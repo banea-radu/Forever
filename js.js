@@ -235,6 +235,16 @@ function saveToDB(targetId, FieldToSave, DataToSave) {
 			Nume: DataToSave
 		});
 	}
+	if (FieldToSave == "class_Detalii") {
+		update(ref(database, 'Frvr/Clienti/' + targetId), {
+			Detalii: DataToSave
+		});
+	}
+	if (FieldToSave == "class_FollowUp") {
+		update(ref(database, 'Frvr/Clienti/' + targetId), {
+			FollowUp: DataToSave
+		});
+	}
 }
 	
 //function deleteFromDB() {
