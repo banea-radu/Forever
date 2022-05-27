@@ -93,31 +93,32 @@ table {
   font-size: 9px;
 }
 
-tr:nth-child(9n+10){
+/* (2 x rows + rows + 1) */
+tr:nth-child(18n+10){
   background-color: #e6e8fa;
 }
-tr:nth-child(9n+11) {
+tr:nth-child(18n+11) {
   background-color: #e6e8fa;
 }
-tr:nth-child(9n+12) {
+tr:nth-child(18n+12) {
   background-color: #e6e8fa;
 }
-tr:nth-child(9n+13){
+tr:nth-child(18n+13){
   background-color: #e6e8fa;
 }
-tr:nth-child(9n+14) {
+tr:nth-child(18n+14) {
   background-color: #e6e8fa;
 }
-tr:nth-child(9n+15) {
+tr:nth-child(18n+15) {
   background-color: #e6e8fa;
 }
-tr:nth-child(9n+16){
+tr:nth-child(18n+16){
   background-color: #e6e8fa;
 }
-tr:nth-child(9n+17) {
+tr:nth-child(18n+17) {
   background-color: #e6e8fa;
 }
-tr:nth-child(9n+18) {
+tr:nth-child(18n+18) {
   background-color: #e6e8fa;
 }
 tr:hover {background-color: #ace1af;}
