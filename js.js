@@ -110,7 +110,7 @@ function getFromDB(User) {
 	console.log("Starting getFromDB");
 	if (User != 'No user signed in!') {
 		var i = 0;
-		get(child(ref(database, 'Frvr/Clienti'), function(snapshot) {
+		get(child(ref(database, 'Frvr/Clienti')), function(snapshot) {
 			console.log("Starting get");
 			console.log(snapshot.val());
 		});
