@@ -112,7 +112,7 @@ function getFromDB(User) {
 		console.log("step2");
 		var i = 0;
 		const dbRef = ref(getDatabase());
-		get(child(dbRef, 'Frvr/Clienti/1')).then((snapshot) => {
+		get(child(dbRef, 'Frvr/Clienti')).then((snapshot) => {
   			if (snapshot.exists()) {
     				console.log(snapshot.val().Nume);
 				console.log(snapshot.val().Detalii);
