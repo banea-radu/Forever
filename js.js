@@ -107,12 +107,12 @@ function testIfUserLogged() {
 //var table = document.createElement('table');
 var table = document.getElementById("table");
 function getFromDB(User) {
+	console.log("Starting getFromDB");
 	if (User != 'No user signed in!') {
 		var i = 0;
-		get(ref(database, 'Frvr/Clienti'), function(snapshot) {
-			snapshot.forEach(function(ChildSnapshot) {
-				console.log(ChildSnapshot.val().Nume);
-			})
+		get(child(ref(database, 'Frvr/Clienti'), function(snapshot) {
+			console.log("Starting get");
+			console.log(snapshot.val());
 		});
 	}
 	document.getElementById("modal-loader").style.display = "none";
