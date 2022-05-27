@@ -107,9 +107,7 @@ function testIfUserLogged() {
 //var table = document.createElement('table');
 var table = document.getElementById("table");
 function getFromDB(User) {
-	console.log("step1");
 	if (User != 'No user signed in!') {
-		console.log("step2");
 		var i = 0;
 		const dbRef = ref(getDatabase());
 		get(child(dbRef, 'Frvr/Clienti')).then((snapshot) => {
@@ -202,6 +200,7 @@ function editmode(td) {
 		data: td.innerHTML,
 		class: td.className
 	};
+	console.log(editTB.elem, editTB.data, editTB.class);
 	td.classList.add('edit-td');
 	let textArea = document.createElement('textarea');
 	textArea.style.width = td.clientWidth + 'px';
