@@ -3,7 +3,7 @@ document.getElementById("modal-loader").style.display = "block";
 /*DATABASE -------------------------------------------------------------------->*/
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-auth.js";
-import { getDatabase, ref, set , get, onValue, remove} from "https://www.gstatic.com/firebasejs/9.6.2/firebase-database.js";
+import { getDatabase, ref, set , get, child, onValue, remove} from "https://www.gstatic.com/firebasejs/9.6.2/firebase-database.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCOAJpowxCi6nakEm7stz_kHok6Y6nXCAU",
