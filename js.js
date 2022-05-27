@@ -330,6 +330,36 @@ function saveToDB(targetId, FieldToSave, DataToSave) {
 			FollowUp: DataToSave
 		});
 	}
+	if (FieldToSave == "class_Invite") {
+		update(ref(database, 'Frvr/Clienti/' + targetId), {
+			Invite: DataToSave
+		});
+	}
+	if (FieldToSave == "class_Cunosc") {
+		update(ref(database, 'Frvr/Clienti/' + targetId), {
+			Cunosc: DataToSave
+		});
+	}
+	if (FieldToSave == "class_Locatie") {
+		update(ref(database, 'Frvr/Clienti/' + targetId), {
+			Locatie: DataToSave
+		});
+	}
+	if (FieldToSave == "class_Abordare") {
+		update(ref(database, 'Frvr/Clienti/' + targetId), {
+			Abordare: DataToSave
+		});
+	}
+	if (FieldToSave == "class_NextStep") {
+		update(ref(database, 'Frvr/Clienti/' + targetId), {
+			NextStep: DataToSave
+		});
+	}
+	if (FieldToSave == "class_Kids") {
+		update(ref(database, 'Frvr/Clienti/' + targetId), {
+			Kids: DataToSave
+		});
+	}
 }
 	
 //function deleteFromDB() {
