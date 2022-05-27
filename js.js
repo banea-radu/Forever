@@ -218,9 +218,9 @@ function editmode(td) {
 function editdone(targetId, td, isOk) {
 	if (isOk) {
 		td.innerHTML = td.firstChild.value;
-		var DataToSave = td.firstChild.value;
-		var FieldToSave = editTB.class;
-		saveToDB(targetId, FieldToSave, DataToSave);
+//		var DataToSave = td.firstChild.value;
+//		var FieldToSave = editTB.class;
+//		saveToDB(targetId, FieldToSave, DataToSave);
 	} else {
 		td.innerHTML = editTB.data;
   	}
