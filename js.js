@@ -233,7 +233,7 @@ var DbDetalii;
 var DbFollowUp;
 function saveToDB(targetId, FieldToSave, DataToSave) {
 	if (FieldToSave == "class_Nume") {
-		update(ref(db), {
+		update(ref(database), {
 			Nume: DataToSave
 		});
 	}
