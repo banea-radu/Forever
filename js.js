@@ -220,8 +220,7 @@ function editdone(targetId, td, isOk) {
 		td.innerHTML = td.firstChild.value;
 		var DataToSave = td.innerHTML;
 		var FieldToSave = editTB.class;
-		console.log(targetId, FieldToSave, DataToSave);
-//		saveToDB(targetId, FieldToSave, DataToSave);
+		saveToDB(targetId, FieldToSave, DataToSave);
 	} else {
 		td.innerHTML = editTB.data;
   	}
