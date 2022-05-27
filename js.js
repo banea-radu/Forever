@@ -108,11 +108,9 @@ function testIfUserLogged() {
 var table = document.getElementById("table");
 function getFromDB(User) {
 	if (User != 'No user signed in!') {
-		var i = 0;
 		const dbRef = ref(getDatabase());
 		get(child(dbRef, 'Frvr/Clienti')).then((snapshot) => {
   			snapshot.forEach(function(ChildSnapshot) {
-				i=i+1;
 				var id = ChildSnapshot.key;
 				var tr1 = document.createElement('tr');
 				var tr2 = document.createElement('tr');
@@ -123,15 +121,15 @@ function getFromDB(User) {
 				var tr7 = document.createElement('tr');
 				var tr8 = document.createElement('tr');
 				var tr9 = document.createElement('tr');
-					tr1.classList.add("row_" + i);
-					tr2.classList.add("row_" + i);
-					tr3.classList.add("row_" + i);
-					tr4.classList.add("row_" + i);
-					tr5.classList.add("row_" + i);
-					tr6.classList.add("row_" + i);
-					tr7.classList.add("row_" + i);
-					tr8.classList.add("row_" + i);
-					tr9.classList.add("row_" + i);
+					tr1.classList.add("row_" + id);
+					tr2.classList.add("row_" + id);
+					tr3.classList.add("row_" + id);
+					tr4.classList.add("row_" + id);
+					tr5.classList.add("row_" + id);
+					tr6.classList.add("row_" + id);
+					tr7.classList.add("row_" + id);
+					tr8.classList.add("row_" + id);
+					tr9.classList.add("row_" + id);
 				var tr1td1 = document.createElement('td');
 					tr1td1.id = "col1_id";
 				var tr1td2 = document.createElement('td');
