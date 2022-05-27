@@ -110,9 +110,12 @@ function getFromDB(User) {
 	console.log("Starting getFromDB");
 	if (User != 'No user signed in!') {
 		var i = 0;
-		get(child(ref(database, 'Frvr/Clienti/1/Nume')), function(snapshot) {
-			console.log("Starting get");
-			console.log(snapshot.val());
+		get(ref(database, 'Frvr/Clienti'), function(snapshot) {
+			console.log("Starting get Snapshot");
+			snapshot.forEach(function(ChildSnapshot) {
+				console.log("Starting get ChildSnapshot");
+				console.log(Childsnapshot.val().Nume);
+			})
 		});
 	}
 	document.getElementById("modal-loader").style.display = "none";
