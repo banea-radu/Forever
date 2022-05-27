@@ -112,6 +112,7 @@ function getFromDB(User) {
 		const dbRef = ref(getDatabase());
 		get(child(dbRef, 'Frvr/Clienti')).then((snapshot) => {
   			snapshot.forEach(function(ChildSnapshot) {
+				i=i+1;
 				var id = ChildSnapshot.key;
 				var tr1 = document.createElement('tr');
 				var tr2 = document.createElement('tr');
@@ -228,8 +229,8 @@ function editdone(targetId, td, isOk) {
 }
 
 function saveToDB(targetId, FieldToSave, DataToSave) {
+	console.log(targetId, FieldToSave, DataToSave);
 	if (FieldToSave == "class_Nume") {
-		console.log(targetId);
 		update(ref(database, 'Frvr/Clienti/' + targetId), {
 			Nume: DataToSave
 		});
