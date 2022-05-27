@@ -93,31 +93,31 @@ table {
   font-size: 9px;
 }
 
-tr:nth-child(9n+1){
+tr:nth-child(9n+10){
   background-color: #e6e8fa;
 }
-tr:nth-child(9n+2) {
+tr:nth-child(9n+11) {
   background-color: #e6e8fa;
 }
-tr:nth-child(9n+3) {
+tr:nth-child(9n+12) {
   background-color: #e6e8fa;
 }
-tr:nth-child(9n+4){
+tr:nth-child(9n+13){
   background-color: #e6e8fa;
 }
-tr:nth-child(9n+5) {
+tr:nth-child(9n+14) {
   background-color: #e6e8fa;
 }
-tr:nth-child(9n+6) {
+tr:nth-child(9n+15) {
   background-color: #e6e8fa;
 }
-tr:nth-child(9n+7){
+tr:nth-child(9n+16){
   background-color: #e6e8fa;
 }
-tr:nth-child(9n+8) {
+tr:nth-child(9n+17) {
   background-color: #e6e8fa;
 }
-tr:nth-child(9n+9) {
+tr:nth-child(9n+18) {
   background-color: #e6e8fa;
 }
 tr:hover {background-color: #ace1af;}
