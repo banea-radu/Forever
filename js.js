@@ -113,15 +113,11 @@ function getFromDB(User) {
 		var i = 0;
 		const dbRef = ref(getDatabase());
 		get(child(dbRef, 'Frvr/Clienti')).then((snapshot) => {
-  			if (snapshot.exists()) {
-    				console.log(snapshot.val().Nume);
-				console.log(snapshot.val().Detalii);
-				console.log(snapshot.val().FollowUp);
-  			} else {
-    				console.log("No data available");
-  			}
-		}).catch((error) => {
-  			console.error(error);
+  			snapshot.forEach(function(ChildSnapshot) {
+    				console.log(ChildSnapshot.val().Nume);
+				console.log(ChildSnapshot.val().Detalii);
+				console.log(ChildSnapshot.val().FollowUp);
+ 			})
 		});
 	}
 	document.getElementById("modal-loader").style.display = "none";
