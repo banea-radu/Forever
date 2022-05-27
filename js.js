@@ -3,7 +3,7 @@ document.getElementById("modal-loader").style.display = "block";
 /*DATABASE -------------------------------------------------------------------->*/
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-auth.js";
-import { getDatabase, ref, set , onValue, remove} from "https://www.gstatic.com/firebasejs/9.6.2/firebase-database.js";
+import { getDatabase, ref, set , get, onValue, remove} from "https://www.gstatic.com/firebasejs/9.6.2/firebase-database.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCOAJpowxCi6nakEm7stz_kHok6Y6nXCAU",
@@ -109,7 +109,9 @@ var table = document.getElementById("table");
 function getFromDB(User) {
 	if (User != 'No user signed in!') {
 		var i = 0;
-		onValue(ref(database, 'Frvr/Clienti'), function(snapshot) {
+		ref.once('value').then(function(snapshot) {// Do your stuff here}))
+		//onValue(ref(database, 'Frvr/Clienti'), function(snapshot) {
+		get(ref(database, 'Frvr/Clienti'), function(snapshot) {
 			snapshot.forEach(function(ChildSnapshot) {
 				i = i + 1;
 				var id = ChildSnapshot.key;
@@ -231,7 +233,8 @@ var DbName;
 var DbDetalii;
 var DbFollowUp;
 function saveToDB(targetId, FieldToSave, DataToSave) {
-	onValue(ref(database, 'Frvr/Clienti/' + targetId), function(ChildSnapshot) {
+	//onValue(ref(database, 'Frvr/Clienti/' + targetId), function(ChildSnapshot) {
+	get(ref(database, 'Frvr/Clienti/' + targetId), function(ChildSnapshot) {
 		DbName = ChildSnapshot.val().Nume;
 		DbDetalii = ChildSnapshot.val().Detalii;
 		DbFollowUp = ChildSnapshot.val().FollowUp;
