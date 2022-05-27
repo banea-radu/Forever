@@ -111,12 +111,14 @@ function getFromDB(User) {
 	if (User != 'No user signed in!') {
 		console.log("step2");
 		var i = 0;
-		get(ref(database, 'Frvr/Clienti'), function(snapshot) {
-			console.log("step3");
-			snapshot.forEach(function(ChildSnapshot) {
-				console.log("step4");
-				console.log(Childsnapshot.val().Nume);
-			})
+		get(child(dbRef, 'Frvr/Clienti/1')).then((snapshot) => {
+  			if (snapshot.exists()) {
+    				console.log(snapshot.val().Nume);
+  			} else {
+    				console.log("No data available");
+  			}
+		}).catch((error) => {
+  			console.error(error);
 		});
 	}
 	document.getElementById("modal-loader").style.display = "none";
