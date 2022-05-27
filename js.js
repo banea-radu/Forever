@@ -111,6 +111,7 @@ function getFromDB(User) {
 	if (User != 'No user signed in!') {
 		console.log("step2");
 		var i = 0;
+		const dbRef = ref(getDatabase());
 		get(child(dbRef, 'Frvr/Clienti/1')).then((snapshot) => {
   			if (snapshot.exists()) {
     				console.log(snapshot.val().Nume);
