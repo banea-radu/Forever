@@ -107,13 +107,14 @@ function testIfUserLogged() {
 //var table = document.createElement('table');
 var table = document.getElementById("table");
 function getFromDB(User) {
-	console.log("Starting getFromDB");
+	console.log("step1");
 	if (User != 'No user signed in!') {
+		console.log("step2");
 		var i = 0;
 		get(ref(database, 'Frvr/Clienti'), function(snapshot) {
-			console.log("Starting get Snapshot");
+			console.log("step3");
 			snapshot.forEach(function(ChildSnapshot) {
-				console.log("Starting get ChildSnapshot");
+				console.log("step4");
 				console.log(Childsnapshot.val().Nume);
 			})
 		});
