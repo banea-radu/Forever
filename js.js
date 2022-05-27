@@ -229,6 +229,7 @@ function editdone(targetId, td, isOk) {
 
 function saveToDB(targetId, FieldToSave, DataToSave) {
 	if (FieldToSave == "class_Nume") {
+		console.log(targetId);
 		update(ref(database, 'Frvr/Clienti/' + targetId), {
 			Nume: DataToSave
 		});
