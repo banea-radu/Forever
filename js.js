@@ -3,7 +3,7 @@ document.getElementById("modal-loader").style.display = "block";
 /*DATABASE -------------------------------------------------------------------->*/
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-auth.js";
-import { getDatabase, ref, set , get, child, onValue, remove} from "https://www.gstatic.com/firebasejs/9.6.2/firebase-database.js";
+import { getDatabase, ref, set, update, get, child, onValue, remove} from "https://www.gstatic.com/firebasejs/9.6.2/firebase-database.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCOAJpowxCi6nakEm7stz_kHok6Y6nXCAU",
@@ -233,33 +233,11 @@ var DbName;
 var DbDetalii;
 var DbFollowUp;
 function saveToDB(targetId, FieldToSave, DataToSave) {
-	//onValue(ref(database, 'Frvr/Clienti/' + targetId), function(ChildSnapshot) {
-	get(ref(database, 'Frvr/Clienti/' + targetId), function(ChildSnapshot) {
-		DbName = ChildSnapshot.val().Nume;
-		DbDetalii = ChildSnapshot.val().Detalii;
-		DbFollowUp = ChildSnapshot.val().FollowUp;
-	});
 	if (FieldToSave == "class_Nume") {
-		set(ref(database, 'Frvr/Clienti/' + targetId), {
-			Nume: DataToSave,
-			Detalii: DbDetalii,
-			FollowUp: DbFollowUp
+		update(ref(db), {
+			Nume: DataToSave
 		});
 	}
-	if (FieldToSave == "class_Detalii") {
-		set(ref(database, 'Frvr/Clienti/' + targetId), {
-			Nume: DbName,
-			Detalii: DataToSave,
-			FollowUp: DbFollowUp
-		});
-	}
-	if (FieldToSave == "class_FollowUp") {
-		set(ref(database, 'Frvr/Clienti/' + targetId), {
-			Nume: DbName,
-			Detalii: DbDetalii,
-			FollowUp: DataToSave
-		});
-	}	
 }
 	
 //function deleteFromDB() {
