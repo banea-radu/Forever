@@ -109,7 +109,6 @@ var table = document.getElementById("table");
 function getFromDB(User) {
 	if (User != 'No user signed in!') {
 		var i = 0;
-		ref.once('value').then(function(snapshot) {// Do your stuff here}))
 		//onValue(ref(database, 'Frvr/Clienti'), function(snapshot) {
 		get(ref(database, 'Frvr/Clienti'), function(snapshot) {
 			snapshot.forEach(function(ChildSnapshot) {
