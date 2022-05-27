@@ -115,6 +115,8 @@ function getFromDB(User) {
 		get(child(dbRef, 'Frvr/Clienti/1')).then((snapshot) => {
   			if (snapshot.exists()) {
     				console.log(snapshot.val().Nume);
+				console.log(snapshot.val().Detalii);
+				console.log(snapshot.val().FollowUp);
   			} else {
     				console.log("No data available");
   			}
