@@ -200,7 +200,6 @@ function editmode(td) {
 		data: td.innerHTML,
 		class: td.className
 	};
-	console.log(editTB.elem, editTB.data, editTB.class);
 	td.classList.add('edit-td');
 	let textArea = document.createElement('textarea');
 	textArea.style.width = td.clientWidth + 'px';
@@ -217,7 +216,7 @@ function editmode(td) {
 
 function editdone(targetId, td, isOk) {
 	if (isOk) {
-		//td.innerHTML = td.firstChild.value;
+		td.innerHTML = td.firstChild.value;
 		var DataToSave = td.firstChild.value
 		var FieldToSave = editTB.class;
 		saveToDB(targetId, FieldToSave, DataToSave);
@@ -228,12 +227,9 @@ function editdone(targetId, td, isOk) {
   	editTB = null;
 }
 
-var DbName;
-var DbDetalii;
-var DbFollowUp;
 function saveToDB(targetId, FieldToSave, DataToSave) {
 	if (FieldToSave == "class_Nume") {
-		update(ref(database), {
+		update(ref(database, 'Frvr/Clienti/' + targetId), {
 			Nume: DataToSave
 		});
 	}
