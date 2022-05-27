@@ -117,9 +117,21 @@ function getFromDB(User) {
 				var tr1 = document.createElement('tr');
 				var tr2 = document.createElement('tr');
 				var tr3 = document.createElement('tr');
+				var tr4 = document.createElement('tr');
+				var tr5 = document.createElement('tr');
+				var tr6 = document.createElement('tr');
+				var tr7 = document.createElement('tr');
+				var tr8 = document.createElement('tr');
+				var tr9 = document.createElement('tr');
 					tr1.classList.add("row_" + i);
 					tr2.classList.add("row_" + i);
 					tr3.classList.add("row_" + i);
+					tr4.classList.add("row_" + i);
+					tr5.classList.add("row_" + i);
+					tr6.classList.add("row_" + i);
+					tr7.classList.add("row_" + i);
+					tr8.classList.add("row_" + i);
+					tr9.classList.add("row_" + i);
 				var tr1td1 = document.createElement('td');
 					tr1td1.id = "col1_id";
 				var tr1td2 = document.createElement('td');
@@ -133,6 +145,31 @@ function getFromDB(User) {
 					tr3td1.id = "col1_label";
                 		var tr3td2 = document.createElement('td');
 					tr3td2.classList.add("class_FollowUp");
+				var tr4td1 = document.createElement('td');
+					tr4td1.id = "col1_label";
+                		var tr4td2 = document.createElement('td');
+					tr4td2.classList.add("class_Invite");
+				var tr5td1 = document.createElement('td');
+					tr5td1.id = "col1_label";
+                		var tr5td2 = document.createElement('td');
+					tr5td2.classList.add("class_Cunosc");
+				var tr6td1 = document.createElement('td');
+					tr6td1.id = "col1_label";
+                		var tr6td2 = document.createElement('td');
+					tr6td2.classList.add("class_Locatie");
+				var tr7td1 = document.createElement('td');
+					tr7td1.id = "col1_label";
+                		var tr7td2 = document.createElement('td');
+					tr7td2.classList.add("class_Abordare");
+				var tr8td1 = document.createElement('td');
+					tr8td1.id = "col1_label";
+                		var tr8td2 = document.createElement('td');
+					tr8td2.classList.add("class_NextStep");
+				var tr9td1 = document.createElement('td');
+					tr9td1.id = "col1_label";
+                		var tr9td2 = document.createElement('td');
+					tr9td2.classList.add("class_Kids");
+				
 				
 				var textId = document.createTextNode(id + '.');
 					tr1td1.appendChild(textId);
@@ -157,6 +194,55 @@ function getFromDB(User) {
                 		tr3.appendChild(tr3td1);
                 		tr3.appendChild(tr3td2);
 				table.appendChild(tr3);
+
+                		var textDetaliiLabel = document.createTextNode('Invite:');
+                			tr4td1.appendChild(textDetaliiLabel);
+                		var textDetalii = document.createTextNode(ChildSnapshot.val().Invite);
+                			tr4td2.appendChild(textDetalii);
+                		tr4.appendChild(tr4td1);
+                		tr4.appendChild(tr4td2);
+				table.appendChild(tr4);
+
+                		var textDetaliiLabel = document.createTextNode('Cunosc:');
+                			tr5td1.appendChild(textDetaliiLabel);
+                		var textDetalii = document.createTextNode(ChildSnapshot.val().Cunosc);
+                			tr5td2.appendChild(textDetalii);
+                		tr5.appendChild(tr5td1);
+                		tr5.appendChild(tr5td2);
+				table.appendChild(tr5);
+
+                		var textDetaliiLabel = document.createTextNode('Locatie:');
+                			tr6td1.appendChild(textDetaliiLabel);
+                		var textDetalii = document.createTextNode(ChildSnapshot.val().Locatie);
+                			tr6td2.appendChild(textDetalii);
+                		tr6.appendChild(tr6td1);
+                		tr6.appendChild(tr6td2);
+				table.appendChild(tr6);
+				
+                		var textDetaliiLabel = document.createTextNode('Abordare:');
+                			tr7td1.appendChild(textDetaliiLabel);
+                		var textDetalii = document.createTextNode(ChildSnapshot.val().Abordare);
+                			tr7td2.appendChild(textDetalii);
+                		tr7.appendChild(tr7td1);
+                		tr7.appendChild(tr7td2);
+				table.appendChild(tr7);
+
+                		var textDetaliiLabel = document.createTextNode('Next Step:');
+                			tr8td1.appendChild(textDetaliiLabel);
+                		var textDetalii = document.createTextNode(ChildSnapshot.val().NextStep);
+                			tr8td2.appendChild(textDetalii);
+                		tr8.appendChild(tr8td1);
+                		tr8.appendChild(tr8td2);
+				table.appendChild(tr8);
+
+                		var textDetaliiLabel = document.createTextNode('Kids:');
+                			tr9td1.appendChild(textDetaliiLabel);
+                		var textDetalii = document.createTextNode(ChildSnapshot.val().Kids);
+                			tr9td2.appendChild(textDetalii);
+                		tr9.appendChild(tr9td1);
+                		tr9.appendChild(tr9td2);
+				table.appendChild(tr9);
+
  			})
 		});
 		document.body.appendChild(table);
