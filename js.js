@@ -109,57 +109,11 @@ var table = document.getElementById("table");
 function getFromDB(User) {
 	if (User != 'No user signed in!') {
 		var i = 0;
-		//onValue(ref(database, 'Frvr/Clienti'), function(snapshot) {
 		get(ref(database, 'Frvr/Clienti'), function(snapshot) {
 			snapshot.forEach(function(ChildSnapshot) {
-				i = i + 1;
-				var id = ChildSnapshot.key;
-				var tr1 = document.createElement('tr');
-				var tr2 = document.createElement('tr');
-				var tr3 = document.createElement('tr');
-					tr1.classList.add("row_" + i);
-					tr2.classList.add("row_" + i);
-					tr3.classList.add("row_" + i);
-				var tr1td1 = document.createElement('td');
-					tr1td1.id = "col1_id";
-				var tr1td2 = document.createElement('td');
-					tr1td2.id = "col2_name";
-					tr1td2.classList.add("class_Nume");
-                		var tr2td1 = document.createElement('td');
-					tr2td1.id = "col1_label";
-				var tr2td2 = document.createElement('td');
-					tr2td2.classList.add("class_Detalii");
-				var tr3td1 = document.createElement('td');
-					tr3td1.id = "col1_label";
-                		var tr3td2 = document.createElement('td');
-					tr3td2.classList.add("class_FollowUp");
-				
-				var textId = document.createTextNode(id + '.');
-					tr1td1.appendChild(textId);
-                		var textNume = document.createTextNode(ChildSnapshot.val().Nume);
-                			tr1td2.appendChild(textNume);
-				tr1.appendChild(tr1td1);
-                		tr1.appendChild(tr1td2);
-				table.appendChild(tr1);
-                
-                		var textDetaliiLabel = document.createTextNode('Detalii:');
-                			tr2td1.appendChild(textDetaliiLabel);
-                		var textDetalii = document.createTextNode(ChildSnapshot.val().Detalii);
-                			tr2td2.appendChild(textDetalii);
-                		tr2.appendChild(tr2td1);
-                		tr2.appendChild(tr2td2);
-				table.appendChild(tr2);
-                
-                		var textDetaliiLabel = document.createTextNode('Follow Up:');
-                			tr3td1.appendChild(textDetaliiLabel);
-                		var textDetalii = document.createTextNode(ChildSnapshot.val().FollowUp);
-                			tr3td2.appendChild(textDetalii);
-                		tr3.appendChild(tr3td1);
-                		tr3.appendChild(tr3td2);
-				table.appendChild(tr3);
+				console.log(ChildSnapshot.val().Nume);
 			})
 		});
-		document.body.appendChild(table);
 	}
 	document.getElementById("modal-loader").style.display = "none";
 }
