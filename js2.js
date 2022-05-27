@@ -9,20 +9,110 @@ function filter() { // created 2nd js file because the onkeydown event was not w
 		if (td) {
       			txtValue = td.textContent || td.innerText;
       			if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        			if (i % 3 == 0) {
+        			if (i % 9 == 0) {
 	        			tr[i].style.display = "";
 	            			tr[i+1].style.display = "";
 	            			tr[i+2].style.display = "";
+					tr[i+3].style.display = "";
+	            			tr[i+4].style.display = "";
+					tr[i+5].style.display = "";
+	            			tr[i+6].style.display = "";
+					tr[i+7].style.display = "";
+	            			tr[i+8].style.display = "";
+	            			i = i+8;
+	        		}
+				if (i % 9 == 1) {
+	        			tr[i-1].style.display = "";
+	            			tr[i].style.display = "";
+					tr[i+1].style.display = "";
+					tr[i+2].style.display = "";
+					tr[i+3].style.display = "";
+					tr[i+4].style.display = "";
+					tr[i+5].style.display = "";
+					tr[i+6].style.display = "";
+					tr[i+7].style.display = "";
+	            			i = i+7;
+	        		}
+	        		if (i % 9 == 2) {
+	        			tr[i-2].style.display = "";
+	            			tr[i-1].style.display = "";
+	            			tr[i].style.display = "";
+					tr[i+1].style.display = "";
+					tr[i+2].style.display = "";
+					tr[i+3].style.display = "";
+					tr[i+4].style.display = "";
+					tr[i+5].style.display = "";
+					tr[i+6].style.display = "";
+	            			i = i+6;
+	        		}
+	        		if (i % 9 == 3) {
+	        			tr[i-3].style.display = "";
+					tr[i-2].style.display = "";
+	            			tr[i-1].style.display = "";
+	            			tr[i].style.display = "";
+					tr[i+1].style.display = "";
+					tr[i+2].style.display = "";
+					tr[i+3].style.display = "";
+					tr[i+4].style.display = "";
+					tr[i+5].style.display = "";
+	            			i = i+5;
+	        		}
+	        		if (i % 9 == 4) {
+	        			tr[i-4].style.display = "";
+					tr[i-3].style.display = "";
+					tr[i-2].style.display = "";
+	            			tr[i-1].style.display = "";
+	            			tr[i].style.display = "";
+					tr[i+1].style.display = "";
+					tr[i+2].style.display = "";
+					tr[i+3].style.display = "";
+					tr[i+4].style.display = "";
+	            			i = i+4;
+	        		}
+	        		if (i % 9 == 5) {
+	        			tr[i-5].style.display = "";
+					tr[i-4].style.display = "";
+					tr[i-3].style.display = "";
+					tr[i-2].style.display = "";
+	            			tr[i-1].style.display = "";
+	            			tr[i].style.display = "";
+					tr[i+1].style.display = "";
+					tr[i+2].style.display = "";
+					tr[i+3].style.display = "";
+	            			i = i+3;
+	        		}
+	        		if (i % 9 == 6) {
+	        			tr[i-6].style.display = "";
+					tr[i-5].style.display = "";
+					tr[i-4].style.display = "";
+					tr[i-3].style.display = "";
+					tr[i-2].style.display = "";
+	            			tr[i-1].style.display = "";
+	            			tr[i].style.display = "";
+					tr[i+1].style.display = "";
+					tr[i+2].style.display = "";
 	            			i = i+2;
 	        		}
-				if (i % 3 == 1) {
-	        			tr[i-1].style.display = "";
+	        		if (i % 9 == 7) {
+	        			tr[i-7].style.display = "";
+					tr[i-6].style.display = "";
+					tr[i-5].style.display = "";
+					tr[i-4].style.display = "";
+					tr[i-3].style.display = "";
+					tr[i-2].style.display = "";
+	            			tr[i-1].style.display = "";
 	            			tr[i].style.display = "";
 					tr[i+1].style.display = "";
 	            			i = i+1;
 	        		}
-	        		if (i % 3 == 2) {
-	        			tr[i-2].style.display = "";
+	        		if (i % 9 == 8) {
+	        			tr[i-8].style.display = "";
+					tr[i-7].style.display = "";
+					tr[i-6].style.display = "";
+					tr[i-5].style.display = "";
+					tr[i-4].style.display = "";
+					tr[i-3].style.display = "";
+					tr[i-2].style.display = "";
 	            			tr[i-1].style.display = "";
 	            			tr[i].style.display = "";
 	            			i = i;
