@@ -267,7 +267,7 @@ function FilterFromDB() {
 			input = document.getElementById("myInput");
 			filter = input.value.toUpperCase();
 			var TableRowsCount = table.rows.length;
-			for (var x=1; x<TableRowsCount; x++) {
+			for (var x=TableRowsCount-1; x>0; x--) {
    				table.deleteRow(x);
 			}
 			txtValue = ChildSnapshot.val().Nume + ChildSnapshot.val().Detalii + ChildSnapshot.val().FollowUp + ChildSnapshot.val().Invite;
@@ -275,6 +275,9 @@ function FilterFromDB() {
 			txtValue = txtValue + ChildSnapshot.val().NextStep + ChildSnapshot.val().Kids;
 			if (filter.toUpperCase().indexOf(txtValue) > -1) {
 				var id = ChildSnapshot.key;
+					if (id == 1) {
+						console.log (filter, txtValue, filter.toUpperCase().indexOf(txtValue));
+					}
 				var tr1 = document.createElement('tr');
 				var tr2 = document.createElement('tr');
 				var tr3 = document.createElement('tr');
