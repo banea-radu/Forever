@@ -266,14 +266,14 @@ function FilterFromDB() {
 			var input, filter, txtValue;
 			input = document.getElementById("myInput");
 			filter = input.value.toUpperCase();
-			var TableRowCount = table.rows.length;
-			for (var x=TableRowCount-1; x>0; x--) {
+			var TableRowsCount = table.rows.length;
+			for (var x=1; x<TableRowsCount; x++) {
    				table.deleteRow(x);
 			}
 			txtValue = ChildSnapshot.val().Nume + ChildSnapshot.val().Detalii + ChildSnapshot.val().FollowUp + ChildSnapshot.val().Invite;
 			txtValue = txtValue + ChildSnapshot.val().Cunosc + ChildSnapshot.val().Locatie + ChildSnapshot.val().Abordare;
 			txtValue = txtValue + ChildSnapshot.val().NextStep + ChildSnapshot.val().Kids;
-			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+			if (filter.toUpperCase().indexOf(txtValue) > -1) {
 				var id = ChildSnapshot.key;
 				var tr1 = document.createElement('tr');
 				var tr2 = document.createElement('tr');
