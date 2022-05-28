@@ -253,6 +253,10 @@ function getFromDB(User) {
 const searchField = document.getElementById("myInput");
 searchField.addEventListener("keyup", function(event) {
 	if (event.keyCode === 13) {
+		if (input.value.length <3) {
+			alert("Introdu mai mult de 2 caractere pentru cautare!");
+			return;
+		}
 		document.getElementById("modal-loader").style.display = "block";
 		event.preventDefault();
 		FilterFromDB();
@@ -266,17 +270,18 @@ function FilterFromDB() {
 			var input, filter, txtValue;
 			input = document.getElementById("myInput");
 			filter = input.value.toUpperCase();
-			var TableRowsCount = table.rows.length;
-			for (var x=TableRowsCount-1; x>0; x--) {
-   				table.deleteRow(x);
-			}
+//			var TableRowsCount = table.rows.length;
+//			for (var x=TableRowsCount-1; x>0; x--) {
+//   				table.deleteRow(x);
+//			}
 			txtValue = ChildSnapshot.val().Nume + ChildSnapshot.val().Detalii + ChildSnapshot.val().FollowUp + ChildSnapshot.val().Invite;
 			txtValue = txtValue + ChildSnapshot.val().Cunosc + ChildSnapshot.val().Locatie + ChildSnapshot.val().Abordare;
 			txtValue = txtValue + ChildSnapshot.val().NextStep + ChildSnapshot.val().Kids;
+			console.log (filter, txtValue);
 			if (filter.toUpperCase().indexOf(txtValue) > -1) {
 				var id = ChildSnapshot.key;
 					if (id == 1) {
-						console.log (filter, txtValue, filter.toUpperCase().indexOf(txtValue));
+						console.log (filter.toUpperCase().indexOf(txtValue));
 					}
 				var tr1 = document.createElement('tr');
 				var tr2 = document.createElement('tr');
