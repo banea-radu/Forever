@@ -277,12 +277,8 @@ function FilterFromDB() {
 			txtValue = ChildSnapshot.val().Nume + ChildSnapshot.val().Detalii + ChildSnapshot.val().FollowUp + ChildSnapshot.val().Invite;
 			txtValue = txtValue + ChildSnapshot.val().Cunosc + ChildSnapshot.val().Locatie + ChildSnapshot.val().Abordare;
 			txtValue = txtValue + ChildSnapshot.val().NextStep + ChildSnapshot.val().Kids;
-			console.log (filter, txtValue);
-			if (filter.toUpperCase().indexOf(txtValue) > -1) {
+			if (txtValue.toUpperCase().indexOf(filter) > -1) {
 				var id = ChildSnapshot.key;
-					if (id == 1) {
-						console.log (filter.toUpperCase().indexOf(txtValue));
-					}
 				var tr1 = document.createElement('tr');
 				var tr2 = document.createElement('tr');
 				var tr3 = document.createElement('tr');
@@ -413,7 +409,6 @@ function FilterFromDB() {
 			}
  		})
 	});
-	document.body.appendChild(table);
 	document.getElementById("modal-loader").style.display = "none";
 }
 
