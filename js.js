@@ -253,6 +253,7 @@ function getFromDB(User) {
 const searchField = document.getElementById("myInput");
 searchField.addEventListener("keyup", function(event) {
 	if (event.keyCode === 13) {
+		document.getElementById("modal-loader").style.display = "block";
 		event.preventDefault();
 		FilterFromDB();
   	}
@@ -262,12 +263,10 @@ function FilterFromDB() {
 	const dbRef = ref(getDatabase());
 	get(child(dbRef, 'Frvr/Clienti')).then((snapshot) => {
   		snapshot.forEach(function(ChildSnapshot) {
-			var input, filter, table, tr, td, i, txtValue;
+			var input, filter, txtValue;
 			input = document.getElementById("myInput");
 			filter = input.value.toUpperCase();
-			table = document.getElementById("table");
 			table.innerHTML = "";
-			tr = table.getElementsByTagName("tr");
 			txtValue = ChildSnapshot.val().Nume + ChildSnapshot.val().Detalii + ChildSnapshot.val().FollowUp + ChildSnapshot.val().Invite;
 			txtValue = txtValue + ChildSnapshot.val().Cunosc + ChildSnapshot.val().Locatie + ChildSnapshot.val().Abordare;
 			txtValue = txtValue + ChildSnapshot.val().NextStep + ChildSnapshot.val().Kids;
