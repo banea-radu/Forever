@@ -267,7 +267,7 @@ function FilterFromDB() {
 	const dbRef = ref(getDatabase());
 	get(child(dbRef, 'Frvr/Clienti')).then((snapshot) => {
   		snapshot.forEach(function(ChildSnapshot) {
-			var filter, txtValue;
+			var input, filter, txtValue;
 			input = document.getElementById("myInput");
 			filter = input.value.toUpperCase();
 //			var TableRowsCount = table.rows.length;
