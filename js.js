@@ -253,7 +253,7 @@ function getFromDB(User) {
 const searchField = document.getElementById("myInput");
 searchField.addEventListener("keyup", function(event) {
 	if (event.keyCode === 13) {
-		if (input.value.length <3) {
+		if (searchField.value.length <3) {
 			alert("Introdu mai mult de 2 caractere pentru cautare!");
 			return;
 		}
@@ -267,7 +267,7 @@ function FilterFromDB() {
 	const dbRef = ref(getDatabase());
 	get(child(dbRef, 'Frvr/Clienti')).then((snapshot) => {
   		snapshot.forEach(function(ChildSnapshot) {
-			var input, filter, txtValue;
+			var filter, txtValue;
 			input = document.getElementById("myInput");
 			filter = input.value.toUpperCase();
 //			var TableRowsCount = table.rows.length;
