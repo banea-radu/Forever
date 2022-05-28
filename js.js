@@ -266,7 +266,10 @@ function FilterFromDB() {
 			var input, filter, txtValue;
 			input = document.getElementById("myInput");
 			filter = input.value.toUpperCase();
-			table.innerHTML = "";
+			var TableRowCount = table.rows.length;
+			for (var x=rowCount-1; x>0; x--) {
+   				table.deleteRow(x);
+			}
 			txtValue = ChildSnapshot.val().Nume + ChildSnapshot.val().Detalii + ChildSnapshot.val().FollowUp + ChildSnapshot.val().Invite;
 			txtValue = txtValue + ChildSnapshot.val().Cunosc + ChildSnapshot.val().Locatie + ChildSnapshot.val().Abordare;
 			txtValue = txtValue + ChildSnapshot.val().NextStep + ChildSnapshot.val().Kids;
