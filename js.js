@@ -266,6 +266,7 @@ function FilterFromDB() {
 			input = document.getElementById("myInput");
 			filter = input.value.toUpperCase();
 			table = document.getElementById("table");
+			table.innerHTML = "";
 			tr = table.getElementsByTagName("tr");
 			txtValue = ChildSnapshot.val().Nume + ChildSnapshot.val().Detalii + ChildSnapshot.val().FollowUp + ChildSnapshot.val().Invite;
 			txtValue = txtValue + ChildSnapshot.val().Cunosc + ChildSnapshot.val().Locatie + ChildSnapshot.val().Abordare;
