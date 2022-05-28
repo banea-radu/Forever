@@ -263,7 +263,7 @@ var editTB;
 //        cell3.innerHTML = "Enter your data";
 //        cell4.innerHTML = "Enter your data";
 //    }
-    
+
 table.onclick = function(event) {
   	let target = event.target.closest('.cancel,.ok,td');
 	let targetId = event.target.closest('tr').className.substring(4);
