@@ -1,3 +1,11 @@
+const searchField = document.getElementById("myInput");
+searchField.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   filter();
+  }
+});
+
 function filter() { // created 2nd js file because the onkeydown event was not working in the 1st js file
 	var input, filter, table, tr, td, i, txtValue;
 	input = document.getElementById("myInput");
