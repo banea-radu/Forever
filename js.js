@@ -267,7 +267,7 @@ function FilterFromDB() {
 			input = document.getElementById("myInput");
 			filter = input.value.toUpperCase();
 			var TableRowCount = table.rows.length;
-			for (var x=rowCount-1; x>0; x--) {
+			for (var x=TableRowCount-1; x>0; x--) {
    				table.deleteRow(x);
 			}
 			txtValue = ChildSnapshot.val().Nume + ChildSnapshot.val().Detalii + ChildSnapshot.val().FollowUp + ChildSnapshot.val().Invite;
