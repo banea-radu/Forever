@@ -244,6 +244,7 @@ function getFromDB(User) {
  			})
 		});
 		document.body.appendChild(table);
+		document.getElementById("resultsNumber").innerHTML = table.rows.length / 9;
 	}
 	document.getElementById("modal-loader").style.display = "none";
 }
@@ -413,6 +414,7 @@ function FilterFromDB() {
 			}
  		})
 	});
+	document.getElementById("resultsNumber").innerHTML = table.rows.length / 9;
 	document.getElementById("modal-loader").style.display = "none";
 }
 
