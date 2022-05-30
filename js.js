@@ -265,15 +265,10 @@ searchField.addEventListener("keyup", function(event) {
 
 function FilterFromDB() {
 	const dbRef = ref(getDatabase());
-	
 	var TableRowsCount = table.rows.length;
-	console.log(TableRowsCount);
 	for (var x=TableRowsCount-1; x>=0; x--) {
    		table.deleteRow(x);
 	}
-	console.log("Gata?");
-	return;
-	
 	get(child(dbRef, 'Frvr/Clienti')).then((snapshot) => {
   		snapshot.forEach(function(ChildSnapshot) {
 			var input, filter, txtValue;
