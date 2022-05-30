@@ -104,7 +104,6 @@ function testIfUserLogged() {
     );
 }
 
-//var table = document.createElement('table');
 var table = document.getElementById("table");
 function getFromDB(User) {
 	if (User != 'No user signed in!') {
@@ -244,12 +243,13 @@ function getFromDB(User) {
  			})
 		});
 		document.body.appendChild(table);
-		document.getElementById("resultsNumber").innerHTML = table.rows.length / 9;
 	}
 	document.getElementById("modal-loader").style.display = "none";
 }
 
-    testIfUserLogged(); // needs to be placed after the functions used are defined
+	testIfUserLogged(); // needs to be placed after the functions used are defined
+	document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + ")" ;
+		
 
 const searchField = document.getElementById("myInput");
 searchField.addEventListener("keyup", function(event) {
@@ -264,11 +264,12 @@ searchField.addEventListener("keyup", function(event) {
 		}
 		document.getElementById("modal-loader").style.display = "block";
 		event.preventDefault();
-		FilterFromDB();
+		await FilterFromDB();
+		document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + ")" ;
   	}
 });
 
-function FilterFromDB() {
+async function FilterFromDB() {
 	const dbRef = ref(getDatabase());
 	var TableRowsCount = table.rows.length;
 	for (var x=TableRowsCount-1; x>=0; x--) {
@@ -414,8 +415,6 @@ function FilterFromDB() {
 			}
  		})
 	});
-	document.getElementById("resultsNumber").innerHTML = table.rows.length / 9;
-	document.getElementById("modal-loader").style.display = "none";
 }
 
 var editTB;
