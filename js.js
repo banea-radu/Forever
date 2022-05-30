@@ -239,20 +239,19 @@ function getFromDB(User) {
                 		tr9.appendChild(tr9td1);
                 		tr9.appendChild(tr9td2);
 				table.appendChild(tr9);
-
  			})
+			document.body.appendChild(table);
+			document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + ")" ;
 		});
-		document.body.appendChild(table);
 	}
 	document.getElementById("modal-loader").style.display = "none";
 }
 
 	testIfUserLogged(); // needs to be placed after the functions used are defined
-	document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + ")" ;
 		
 
 const searchField = document.getElementById("myInput");
-async searchField.addEventListener("keyup", function(event) {
+searchField.addEventListener("keyup", function(event) {
 	if (event.keyCode === 13) {
 		if (searchField.value.length <2) {
 			if (searchField.value.length == 0) {
@@ -264,12 +263,11 @@ async searchField.addEventListener("keyup", function(event) {
 		}
 		document.getElementById("modal-loader").style.display = "block";
 		event.preventDefault();
-		await FilterFromDB();
-		document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + ")" ;
+		FilterFromDB();
   	}
 });
 
-async function FilterFromDB() {
+function FilterFromDB() {
 	const dbRef = ref(getDatabase());
 	var TableRowsCount = table.rows.length;
 	for (var x=TableRowsCount-1; x>=0; x--) {
@@ -414,6 +412,7 @@ async function FilterFromDB() {
 				table.appendChild(tr9);
 			}
  		})
+		document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + ")" ;
 	});
 }
 
