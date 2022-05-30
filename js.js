@@ -252,7 +252,7 @@ function getFromDB(User) {
 		
 
 const searchField = document.getElementById("myInput");
-searchField.addEventListener("keyup", function(event) {
+async searchField.addEventListener("keyup", function(event) {
 	if (event.keyCode === 13) {
 		if (searchField.value.length <2) {
 			if (searchField.value.length == 0) {
@@ -264,7 +264,7 @@ searchField.addEventListener("keyup", function(event) {
 		}
 		document.getElementById("modal-loader").style.display = "block";
 		event.preventDefault();
-		const resultsFound = await FilterFromDB();
+		await FilterFromDB();
 		document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + ")" ;
   	}
 });
