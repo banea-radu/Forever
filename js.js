@@ -268,7 +268,7 @@ function FilterFromDB() {
 	
 	var TableRowsCount = table.rows.length;
 	console.log(TableRowsCount);
-	for (var x=TableRowsCount-1; x>0; x--) {
+	for (var x=TableRowsCount-1; x>=0; x--) {
    		table.deleteRow(x);
 	}
 	console.log("Gata?");
