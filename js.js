@@ -270,10 +270,13 @@ function FilterFromDB() {
 			var input, filter, txtValue;
 			input = document.getElementById("myInput");
 			filter = input.value.toUpperCase();
-//			var TableRowsCount = table.rows.length;
-//			for (var x=TableRowsCount-1; x>0; x--) {
-//   				table.deleteRow(x);
-//			}
+			var TableRowsCount = table.rows.length;
+			console.log(TableRowsCount);
+			for (var x=TableRowsCount-1; x>0; x--) {
+   				table.deleteRow(x);
+			}
+			console.log("Gata?");
+			return;
 			txtValue = ChildSnapshot.val().Nume + ChildSnapshot.val().Detalii + ChildSnapshot.val().FollowUp + ChildSnapshot.val().Invite;
 			txtValue = txtValue + ChildSnapshot.val().Cunosc + ChildSnapshot.val().Locatie + ChildSnapshot.val().Abordare;
 			txtValue = txtValue + ChildSnapshot.val().NextStep + ChildSnapshot.val().Kids;
