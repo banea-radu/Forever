@@ -241,10 +241,10 @@ function getFromDB(User) {
 				table.appendChild(tr9);
  			})
 			document.body.appendChild(table);
-			document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + ")" ;
+			document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + " results )" ;
+			document.getElementById("modal-loader").style.display = "none";
 		});
 	}
-	document.getElementById("modal-loader").style.display = "none";
 }
 
 	testIfUserLogged(); // needs to be placed after the functions used are defined
@@ -412,7 +412,8 @@ function FilterFromDB() {
 				table.appendChild(tr9);
 			}
  		})
-		document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + ")" ;
+		document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + " results )";
+		document.getElementById("modal-loader").style.display = "none";
 	});
 }
 
