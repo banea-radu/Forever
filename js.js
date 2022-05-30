@@ -254,7 +254,7 @@ const searchField = document.getElementById("myInput");
 searchField.addEventListener("keyup", function(event) {
 	if (event.keyCode === 13) {
 		if (searchField.value.length <3) {
-			if (searchField.value.length == 0 {
+			if (searchField.value.length == 0) {
 			    getFromDB(document.getElementById("SideBarUserName").innerHTML);
 			} else {
 				alert("Introdu mai mult de 2 caractere pentru o cautare mai exacta!");
