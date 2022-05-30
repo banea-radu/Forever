@@ -51,17 +51,28 @@ h2 {
 	outline:none;
 }
 
+#resultsNumber {
+	width: 20%;
+	font-size: 11px;
+	text-align: right;
+	margin-bottom: 12px;
+	left: 0%;
+	top: 0%;
+	padding: 12px 20px 12px 40px;
+	position: absolute;
+}
+
 #myInput {
   background-image: url('/Forever/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  width: 50%;
+  width: 45%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
   margin-bottom: 12px;
   position: relative;
-  left:25%;
+  left:30%;
   border-radius: 12px;
 }
 
