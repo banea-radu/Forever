@@ -264,7 +264,7 @@ searchField.addEventListener("keyup", function(event) {
 		}
 		document.getElementById("modal-loader").style.display = "block";
 		event.preventDefault();
-		await FilterFromDB();
+		const resultsFound = await FilterFromDB();
 		document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + ")" ;
   	}
 });
