@@ -253,6 +253,7 @@ function getFromDB(User) {
 const searchField = document.getElementById("myInput");
 searchField.addEventListener("keyup", function(event) {
 	if (event.keyCode === 13) {
+		event.preventDefault();
 		if (searchField.value.length <2) {
 			if (searchField.value.length == 0) {
 				document.getElementById("modal-loader").style.display = "block";
@@ -261,13 +262,13 @@ searchField.addEventListener("keyup", function(event) {
    					table.deleteRow(x);
 				}
 				getFromDB(document.getElementById("SideBarUserName").innerHTML);
+				return;
 			} else {
 				alert("Introdu mai mult de 1 caracter pentru o cautare mai exacta!");
 				return;
 			}
 		}
 		document.getElementById("modal-loader").style.display = "block";
-		event.preventDefault();
 		FilterFromDB();
   	}
 });
