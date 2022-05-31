@@ -255,7 +255,12 @@ searchField.addEventListener("keyup", function(event) {
 	if (event.keyCode === 13) {
 		if (searchField.value.length <2) {
 			if (searchField.value.length == 0) {
-			    getFromDB(document.getElementById("SideBarUserName").innerHTML);
+				document.getElementById("modal-loader").style.display = "block";
+				var TableRowsCount = table.rows.length;
+				for (var x=TableRowsCount-1; x>=0; x--) {
+   					table.deleteRow(x);
+				}
+				getFromDB(document.getElementById("SideBarUserName").innerHTML);
 			} else {
 				alert("Introdu mai mult de 1 caracter pentru o cautare mai exacta!");
 				return;
