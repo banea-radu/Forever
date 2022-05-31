@@ -240,7 +240,7 @@ function getFromDB(User) {
                 		tr9.appendChild(tr9td2);
 				table.appendChild(tr9);
  			})
-			document.body.appendChild(table);
+			//document.body.appendChild(table);
 			document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + " results )" ;
 			document.getElementById("modal-loader").style.display = "none";
 		});
