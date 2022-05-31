@@ -241,7 +241,7 @@ function getFromDB(User) {
 				table.appendChild(tr9);
  			})
 			//document.body.appendChild(table);
-			document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + " results )" ;
+			document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + " rezultate )" ;
 			document.getElementById("modal-loader").style.display = "none";
 		});
 	}
@@ -417,7 +417,7 @@ function FilterFromDB() {
 				table.appendChild(tr9);
 			}
  		})
-		document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + " results )";
+		document.getElementById("resultsNumber").innerHTML = "( " + table.rows.length / 9 + " rezultate )";
 		document.getElementById("modal-loader").style.display = "none";
 	});
 }
