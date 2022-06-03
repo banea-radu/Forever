@@ -98,10 +98,11 @@ function testIfUserLogged() {
             }
         });
     });
-//    UserLogged.then(
-//	function(value) {getFromDB(value);},
-//  	function(error) {getFromDB(error);}
-//    );
+	document.getElementById("modal-loader").style.display = "none";
+//	UserLogged.then(
+//		function(value) {getFromDB(value);},
+//  		function(error) {getFromDB(error);}
+//      );
 }
 
 var table = document.getElementById("table");
