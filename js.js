@@ -98,10 +98,10 @@ function testIfUserLogged() {
             }
         });
     });
-    UserLogged.then(
-	function(value) {getFromDB(value);},
-  	function(error) {getFromDB(error);}
-    );
+//    UserLogged.then(
+//	function(value) {getFromDB(value);},
+//  	function(error) {getFromDB(error);}
+//    );
 }
 
 var table = document.getElementById("table");
@@ -269,12 +269,12 @@ searchField.addEventListener("keyup", function(event) {
 //				return;
 //			}
 		}
-		FilterFromDB();
+		document.getElementById("modal-loader").style.display = "block";
+		setTimeout(FilterFromDB(),150);
   	}
 });
 
 function FilterFromDB() {
-	document.getElementById("modal-loader").style.display = "block";
 	const dbRef = ref(getDatabase());
 	var TableRowsCount = table.rows.length;
 	for (var x=TableRowsCount-1; x>=0; x--) {
