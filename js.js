@@ -263,17 +263,18 @@ searchField.addEventListener("keyup", function(event) {
 				}
 				getFromDB(document.getElementById("SideBarUserName").innerHTML);
 				return;
-			} else {
-				alert("Introdu mai mult de 1 caracter pentru o cautare mai exacta!");
-				return;
-			}
+			} 
+//			else {
+//				alert("Introdu mai mult de 1 caracter pentru o cautare mai exacta!");
+//				return;
+//			}
 		}
-		document.getElementById("modal-loader").style.display = "block";
 		FilterFromDB();
   	}
 });
 
 function FilterFromDB() {
+	document.getElementById("modal-loader").style.display = "block";
 	const dbRef = ref(getDatabase());
 	var TableRowsCount = table.rows.length;
 	for (var x=TableRowsCount-1; x>=0; x--) {
