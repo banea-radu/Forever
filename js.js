@@ -286,9 +286,9 @@ function FilterFromDB() {
 			var input, filter, txtValue;
 			input = document.getElementById("myInput");
 			filter = input.value.toUpperCase();
-			txtValue = ChildSnapshot.val().Nume + ChildSnapshot.val().Detalii + ChildSnapshot.val().FollowUp + ChildSnapshot.val().Invite;
-			txtValue = txtValue + ChildSnapshot.val().Cunosc + ChildSnapshot.val().Locatie + ChildSnapshot.val().Abordare;
-			txtValue = txtValue + ChildSnapshot.val().NextStep + ChildSnapshot.val().Kids;
+			txtValue = ChildSnapshot.val().Nume + " " + ChildSnapshot.val().Detalii + " " + ChildSnapshot.val().FollowUp + " " +
+				ChildSnapshot.val().Invite  + " " + ChildSnapshot.val().Cunosc + " " + ChildSnapshot.val().Locatie + " " + 
+				ChildSnapshot.val().Abordare + " " + ChildSnapshot.val().NextStep + " " + ChildSnapshot.val().Kids;
 			if (txtValue.toUpperCase().indexOf(filter) > -1) {
 				var id = ChildSnapshot.key;
 				var tr1 = document.createElement('tr');
