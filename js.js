@@ -169,7 +169,8 @@ function getFromDB(User) {
 					tr9td2.classList.add("class_Kids");
 				
 				
-				var textId = document.createTextNode(id + '.');
+//				var textId = document.createTextNode(id + '.');
+				var textId = document.createTextNode('Nume');
 					tr1td1.appendChild(textId);
                 		var textNume = document.createTextNode(ChildSnapshot.val().Nume);
                 			tr1td2.appendChild(textNume);
@@ -347,7 +348,8 @@ function FilterFromDB() {
 	                	var tr9td2 = document.createElement('td');
 					tr9td2.classList.add("class_Kids");
 					
-				var textId = document.createTextNode(id + '.');
+//				var textId = document.createTextNode(id + '.');
+				var textId = document.createTextNode('Nume');
 					tr1td1.appendChild(textId);
 	                	var textNume = document.createTextNode(ChildSnapshot.val().Nume);
 	                		tr1td2.appendChild(textNume);
