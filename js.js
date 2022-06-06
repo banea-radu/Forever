@@ -291,7 +291,7 @@ function FilterFromDB() {
 			txtValue = ChildSnapshot.val().Nume + " " + ChildSnapshot.val().Detalii + " " + ChildSnapshot.val().FollowUp + " " +
 				ChildSnapshot.val().Invite  + " " + ChildSnapshot.val().Cunosc + " " + ChildSnapshot.val().Locatie + " " + 
 				ChildSnapshot.val().Abordare + " " + ChildSnapshot.val().NextStep + " " + ChildSnapshot.val().Kids;
-			if (txtValue.toUpperCase().indexOf(filter_nueavatar) = -1) { //continue only if text not found
+			if (txtValue.toUpperCase().indexOf(filter_nueavatar) == -1) { //continue only if text not found
 				if (txtValue.toUpperCase().indexOf(filter) > -1) {
 					var id = ChildSnapshot.key;
 					var tr1 = document.createElement('tr');
