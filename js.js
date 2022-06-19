@@ -447,16 +447,20 @@ var editTB;
 table.onclick = function(event) {
   	let target = event.target.closest('.cancel,.ok,td');
 	let targetId = event.target.closest('tr').className.substring(4);
-	if (!table.contains(target)) return;
-	if (target.className == 'cancel') {
-		editdone(targetId, editTB.elem, false);
-	} else if (target.className == 'ok') {
-    		editdone(targetId, editTB.elem, true);
-  	} else if (target.nodeName == 'TD') {
-		if (editTB) return; //if editmode already opened then exit function
-		if ((target.id == "col1_id") || (target.id == "col1_label")) return; //if first column clicked then exit function
-		editmode(target);
-  	}
+//	if (!table.contains(target)) return;
+//	if (target.className == 'cancel') {
+//		editdone(targetId, editTB.elem, false);
+//	} else if (target.className == 'ok') {
+//    		editdone(targetId, editTB.elem, true);
+//  	} else 
+	if (target.nodeName == 'TD') {
+		if (editTB) {   //return; //if editmode already opened then exit function
+			editdone(targetId, editTB.elem, true);
+		} else {
+//		if ((target.id == "col1_id") || (target.id == "col1_label")) return; //if first column clicked then exit function
+			editmode(target);
+  		}
+	}
 };
 
 function editmode(td) {
@@ -474,9 +478,9 @@ function editmode(td) {
 	td.innerHTML = '';
 	td.appendChild(textArea);
 	textArea.focus();
-	td.insertAdjacentHTML("beforeEnd",
-		'<div class="edit-controls"><button class="ok">OK</button><button class="cancel">CANCEL</button></div>'
-	);
+//	td.insertAdjacentHTML("beforeEnd",
+//		'<div class="edit-controls"><button class="ok">OK</button><button class="cancel">CANCEL</button></div>'
+//	);
 }
 
 function editdone(targetId, td, isOk) {
