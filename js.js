@@ -454,8 +454,12 @@ table.onclick = function(event) {
 //    		editdone(targetId, editTB.elem, true);
 //  	} else 
 	if (target.nodeName == 'TD') {
-		if (editTB) {   //return; //if editmode already opened then exit function
-			editdone(targetId, editTB.elem, true);
+		if (editTB) {
+			if (event.target.closest('td').className == 'edit-td') {
+				return; //if editmode already opened and user clicked inside editable area then exit function
+			} else {
+				editdone(targetId, editTB.elem, true);
+			}
 		} else {
 //		if ((target.id == "col1_id") || (target.id == "col1_label")) return; //if first column clicked then exit function
 			editmode(target);
