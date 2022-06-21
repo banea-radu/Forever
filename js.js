@@ -456,7 +456,7 @@ table.onclick = function(event) {
 	if (target.nodeName == 'TD') {
 		if (editTB) {
 			alert(event.target.closest('td').className);
-			if (event.target.closest('td').className == 'edit-td') {
+			if (event.target.closest('td').className.includes('edit-td')) {
 				return; //if editmode already opened and user clicked inside editable area then exit function
 			} else {
 				editdone(targetId, editTB.elem, true);
