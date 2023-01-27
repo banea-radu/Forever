@@ -1,1 +1,1 @@
-## Learn by doing Project 1 - ForeverTool (version 1)
+## Learn by doing Project 2 - ForeverTool (version 1)
